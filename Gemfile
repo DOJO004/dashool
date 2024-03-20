@@ -71,3 +71,4 @@ end
 
 
 gem 'pg'
+gem "uuid7", "~> 0.2.0"
