@@ -10,17 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_20_080602) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "cocktails", force: :cascade do |t|
-    t.uuid "identifier"
-    t.string "name"
-    t.text "introduce"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema[7.1].define(version: 2024_03_20_083158) do
+# Could not dump table "cocktails" because of following StandardError
+#   Unknown type 'uuid' for column 'id'
 
 end
