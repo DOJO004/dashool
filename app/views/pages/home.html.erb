@@ -1,9 +1,9 @@
 <div>
   <div>
     <h1 class="text-4xl text-center ">Dashool</h1>
-    <h2 class="text-2xl text-center ">The largest cocktail community in Taiwan</ㄘ>
+    <h2 class="text-2xl text-center ">The largest cocktail community in Taiwan</h2>
   </div>
-  <input type="search" class="w-full mx-auto ">
+  <input type="search" class="w-full mx-auto text-black ">
   <div class="flex justify-center gap-4 my-4 ">
     <% @alcohol_category.each do |alcohol| %>
       <p><%= alcohol %> </p>
@@ -16,7 +16,7 @@
         <div class="w-full ">
           <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md"%>
           <div class="p-2 border rounded-b-md">
-            <p class="text-xl "><%= cocktail.name %> </p>
+            <p class="text-xl "><%= link_to cocktail.name, cocktail_path(cocktail.id)%></p>
             <p class="truncate "><%= cocktail.introduce %> </p>
             <div class="flex justify-end gap-2 ">
               <button>♥</button>

@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-
+before_action :set_cocktail, only: [ :show, :edit, :update, :destroy ]
     def show
       
     end
@@ -19,20 +19,28 @@ class CocktailsController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
-        
+        if @cocktail.update
+            redirect_to cocktail_path(params[:id])
+        else
+            render :edit
+        end
     end
 
     def destroy
-      
+      @cocktail.destroy
+      redirect_to root_path
     end
 
     private
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :introduce, :type_of, :main_image)
+        params.require(:cocktail).permit(:name, :introduce, :type_of, :main_image, :history, :production_method, :drink_style, :skill)
+    end
+
+    def set_cocktail
+        @cocktail = Cocktail.find(params[:id])
     end
 end
