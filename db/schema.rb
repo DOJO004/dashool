@@ -55,18 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_133619) do
     t.string "skill"
   end
 
-  create_table "practices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "history"
-    t.text "production_method"
-    t.string "type_of"
-    t.string "method"
-    t.uuid "cocktail_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cocktail_id"], name: "index_practices_on_cocktail_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "practices", "cocktails"
 end
