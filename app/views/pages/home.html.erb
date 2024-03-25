@@ -1,25 +1,32 @@
-<div>
+<div class="w-full ">
   <div>
     <h1 class="text-6xl text-center ">Dashool</h1>
     <h2 class="text-4xl text-center ">The largest cocktail community in Taiwan</h2>
   </div>
   <input type="search" class="w-full mx-auto my-4 text-black ">
-  <div class="flex justify-center gap-4 my-4 ">
+  <div class="grid justify-center grid-cols-3 gap-4 mx-auto my-4 text-center lg:grid-cols-6 ">
     <% @alcohol_category.each do |alcohol| %>
-      <p class="text-xl"><%= alcohol %> </p>
+      <%= link_to alcohol, filter_base_wine_path(alcohol)%>
     <% end %>
   </div>
   <div>
     <h3 class="text-2xl font-bold ">Clasic Cocktail</h3>
     <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 ">
       <% @classic_cocktails.each do |cocktail|%>
-        <div class="w-full my-2 ">
-          <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md"%>
-          <div class="relative p-2 border rounded-b-md min-h-32">
-            <p class="text-xl "><%= link_to cocktail.name, cocktail_path(cocktail.id)%></p>
-            <p class=""><%= cocktail.introduce %> </p>
-            <button class="absolute bottom-0 text-xl right-2 ">♥</button>
-          </div>
+        <div class="w-full my-2 border rounded-md ">
+          <%= link_to cocktail_path(cocktail.id) do%>
+            <div class="flex items-center w-full mx-auto">
+              <% if cocktail.main_image.attached? %>
+                <%= image_tag cocktail.main_image, class:"rounded-t-md "%>
+              <% else %>
+                <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md "%>
+              <% end %>
+            </div>
+            <div class="flex justify-between p-2">
+              <p class="text-xl "><%= cocktail.name%> </p>
+              <button class="text-xl ">♥</button>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
