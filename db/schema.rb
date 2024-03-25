@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_133619) do
     t.text "history"
     t.string "drink_style"
     t.string "skill"
+    t.string "base_wine"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

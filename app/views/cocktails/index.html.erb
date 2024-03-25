@@ -1,0 +1,34 @@
+<div class="w-full ">
+  <div>
+    <h1 class="text-6xl text-center ">Dashool</h1>
+    <h2 class="text-4xl text-center ">The largest cocktail community in Taiwan</h2>
+  </div>
+  <%= render "search_form"%>
+  <div class="grid justify-center grid-cols-3 gap-4 mx-auto my-4 text-center lg:grid-cols-6 ">
+    <% @alcohol_category.each do |alcohol| %>
+      <%= link_to alcohol, filter_base_wine_path(alcohol), class:"text-xl lg:text-2xl"%>
+    <% end %>
+  </div>
+  <div>
+    <h3 class="text-2xl font-bold ">Clasic Cocktail</h3>
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 ">
+      <% @classic_cocktails.each do |cocktail|%>
+        <div class="w-full my-2 border rounded-md ">
+          <%= link_to cocktail_path(cocktail.id) do%>
+            <div class="flex items-center w-full mx-auto">
+              <% if cocktail.main_image.attached? %>
+                <%= image_tag cocktail.main_image, class:"rounded-t-md "%>
+              <% else %>
+                <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md "%>
+              <% end %>
+            </div>
+            <div class="flex justify-between p-2">
+              <p class="text-xl "><%= cocktail.name%> </p>
+              <button class="text-xl ">♥</button>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
