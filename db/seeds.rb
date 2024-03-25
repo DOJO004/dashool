@@ -1,30 +1,72 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# frozen_string_literal: true
 
 Cocktail.delete_all
 
 cocktails = [
-  { name: 'Mojito', introduce: 'A traditional Cuban highball.', type_of: 'Classic' },
-  { name: 'Martini', introduce: 'A cocktail made with gin and vermouth.', type_of: 'Classic' },
-  { name: 'Daiquiri', introduce: 'A family of cocktails whose main ingredients are rum, citrus juice, and sugar.', type_of: 'Classic' },
-  { name: 'Margarita', introduce: 'A cocktail consisting of tequila, orange liqueur, and lime juice.', type_of: 'Classic' },
-  { name: 'Cosmopolitan', introduce: 'A cocktail made with vodka, triple sec, cranberry juice, and freshly squeezed lime juice.', type_of: 'Classic' },
-  { name: 'Old Fashioned', introduce: 'A cocktail made by muddling sugar with bitters, then adding alcohol, such as whiskey or brandy.', type_of: 'Classic' },
-  { name: 'Bloody Mary', introduce: 'A cocktail containing vodka, tomato juice, and combinations of other spices and flavorings.', type_of: 'Classic' },
-  { name: 'Manhattan', introduce: 'A cocktail made with whiskey, sweet vermouth, and bitters.', type_of: 'Classic' },
-  { name: 'Negroni', introduce: 'A cocktail made of one part gin, one part vermouth rosso, and one part Campari.', type_of: 'Classic' },
-  { name: 'Pina Colada', introduce: 'A sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice.', type_of: 'Classic' }
+  { name: "Mojito",
+    introduce: "A traditional Cuban highball.",
+    type_of: "Classic",
+    drink_style: "Light",
+    skill: "Build",
+    history: "The Mojito originated in Havana, Cuba, and was traditionally made with five ingredients: white rum, sugar (traditionally sugar cane juice), lime juice, soda water, and mint.", },
+  { name: "Martini",
+    introduce: "A cocktail made with gin and vermouth.",
+    type_of: "Classic",
+    drink_style: "Strong",
+    skill: "Stir",
+    history: "The exact origins of the Martini are unclear, but it is believed to have originated in the United States, with its roots dating back to the 19th century. It has become one of the best-known mixed alcoholic beverages.", },
+  { name: "Daiquiri",
+    introduce: "A family of cocktails whose main ingredients are rum, citrus juice, and sugar.",
+    type_of: "Classic",
+    drink_style: "Middle",
+    skill: "Shake",
+    history: "The Daiquiri is named after a beach near Santiago, Cuba, and was reportedly invented by an American mining engineer, Jennings Cox, who was in Cuba at the time of the Spanish–American War.", },
+  { name: "Margarita",
+    introduce: "A cocktail consisting of tequila, orange liqueur, and lime juice.",
+    type_of: "Classic",
+    drink_style: "Middle",
+    skill: "Shake",
+    history: "The exact origins of the Margarita are unknown, but it is believed to have been invented in Mexico in the late 1930s or early 1940s. There are many stories and legends surrounding its creation.", },
+  { name: "Cosmopolitan",
+    introduce: "A cocktail made with vodka, triple sec, cranberry juice, and freshly squeezed lime juice.",
+    type_of: "Classic",
+    drink_style: "Middle",
+    skill: "Shake",
+    history: "The Cosmopolitan gained popularity in the 1990s, particularly among young women. Its precise origin is disputed, but it is often associated with New York City.", },
+  { name: "Old Fashioned",
+    introduce: "A cocktail made by muddling sugar with bitters, then adding alcohol, such as whiskey or brandy.",
+    type_of: "Classic",
+    drink_style: "Strong",
+    skill: "Build",
+    history: "The Old Fashioned is one of the oldest known cocktails, dating back to the early 19th century. It is said to have originated in the United States, and its name comes from the original method of preparing the drink.", },
+  { name: "Bloody Mary",
+    introduce: "A cocktail containing vodka, tomato juice, and combinations of other spices and flavorings.",
+    type_of: "Classic",
+    drink_style: "Middle",
+    skill: "Build",
+    history: "The exact origins of the Bloody Mary are uncertain, but it is believed to have been created in the 1920s or 1930s. It has since become a popular brunch cocktail.", },
+  { name: "Manhattan",
+    introduce: "A cocktail made with whiskey, sweet vermouth, and bitters.",
+    type_of: "Classic",
+    drink_style: "Strong",
+    skill: "Stir",
+    history: "The Manhattan is said to have been invented at the Manhattan Club in New York City in the early 1870s, where it was reportedly created for a banquet hosted by Winston Churchill's mother.", },
+  { name: "Negroni",
+    introduce: "A cocktail made of one part gin, one part vermouth rosso, and one part Campari.",
+    type_of: "Classic",
+    drink_style: "Strong",
+    skill: "Stir",
+    history: "The Negroni is believed to have been invented in Florence, Italy, in the early 20th century. It was reportedly created when Count Camillo Negroni asked a bartender to strengthen his Americano by replacing the soda water with gin.", },
+  { name: "Pina Colada",
+    introduce: "A sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice.",
+    type_of: "Classic",
+    drink_style: "Middle",
+    skill: "Shake",
+    history: "The exact origins of the Piña Colada are disputed, but it is believed to have been created in Puerto Rico in the 1950s. It has since become the national drink of Puerto Rico.", },
 ]
 
 cocktails.each do |cocktail|
-    Cocktail.create(cocktail)
+  Cocktail.create(cocktail)
 end
 
 puts "種子資料已創建!"

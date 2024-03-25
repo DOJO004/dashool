@@ -1,4 +1,12 @@
 <div>
-  <%= image_tag @cocktail.main_image%>
-  <h2><%= @cocktail.name %> </h2>
+  <% if @cocktail.main_image.attached? %>
+    <%= image_tag @cocktail.main_image%>
+  <% else %>
+    <%= image_tag "https://fakeimg.pl/250x100"%>
+  <% end %>
+  <h2 class="text-4xl"><%= @cocktail.name %> </h2>
+  <p>Type : <%= @cocktail.type_of%> </p>
+  <p>Skill : <%= @cocktail.skill%> </p>
+  <p>Drink Style : <%= @cocktail.drink_style%> </p>
+  <p>History : <%= @cocktail.history%> </p>
 </div>
