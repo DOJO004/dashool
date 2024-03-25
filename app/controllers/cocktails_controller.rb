@@ -2,6 +2,12 @@
 
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show edit update destroy]
+  def index
+    @alcohol_category = %w[Whisky Gin Brandy Vodka Rum Tequila]
+    @q = Cocktail.ransack(params[:q])
+    @classic_cocktails = @q.result
+  end
+
   def show; end
 
   def new

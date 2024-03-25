@@ -3,7 +3,7 @@
     <h1 class="text-6xl text-center ">Dashool</h1>
     <h2 class="text-4xl text-center ">The largest cocktail community in Taiwan</h2>
   </div>
-  <input type="search" class="w-full mx-auto my-4 text-black ">
+  <%= render "search_form"%>
   <div class="grid justify-center grid-cols-3 gap-4 mx-auto my-4 text-center lg:grid-cols-6 ">
     <% @alcohol_category.each do |alcohol| %>
       <%= link_to alcohol, filter_base_wine_path(alcohol), class:"text-xl lg:text-2xl"%>
