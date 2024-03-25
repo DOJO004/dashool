@@ -1,26 +1,24 @@
 <div>
   <div>
-    <h1 class="text-4xl text-center ">Dashool</h1>
-    <h2 class="text-2xl text-center ">The largest cocktail community in Taiwan</h2>
+    <h1 class="text-6xl text-center ">Dashool</h1>
+    <h2 class="text-4xl text-center ">The largest cocktail community in Taiwan</h2>
   </div>
-  <input type="search" class="w-full mx-auto text-black ">
+  <input type="search" class="w-full mx-auto my-4 text-black ">
   <div class="flex justify-center gap-4 my-4 ">
     <% @alcohol_category.each do |alcohol| %>
-      <p><%= alcohol %> </p>
+      <p class="text-xl"><%= alcohol %> </p>
     <% end %>
   </div>
   <div>
-    <h3 class="text-xl ">Clasic Cocktail</h3>
-    <div class="grid grid-cols-2 gap-6 ">
+    <h3 class="text-2xl font-bold ">Clasic Cocktail</h3>
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 ">
       <% @classic_cocktails.each do |cocktail|%>
-        <div class="w-full ">
+        <div class="w-full my-2 ">
           <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md"%>
-          <div class="p-2 border rounded-b-md">
+          <div class="relative p-2 border rounded-b-md min-h-32">
             <p class="text-xl "><%= link_to cocktail.name, cocktail_path(cocktail.id)%></p>
-            <p class="truncate "><%= cocktail.introduce %> </p>
-            <div class="flex justify-end gap-2 ">
-              <button>♥</button>
-            </div>
+            <p class=""><%= cocktail.introduce %> </p>
+            <button class="absolute bottom-0 text-xl right-2 ">♥</button>
           </div>
         </div>
       <% end %>

@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_133619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "history"
-    t.text "production_method"
     t.string "drink_style"
     t.string "skill"
   end
