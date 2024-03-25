@@ -71,5 +71,5 @@ end
 
 gem "aws-sdk-s3"
 gem "pg"
-gem "uuid7", "~> 0.2.0"
 gem "ransack"
+gem "uuid7", "~> 0.2.0"
