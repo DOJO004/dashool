@@ -5,7 +5,7 @@ class CocktailsController < ApplicationController
   def index
     @alcohol_category = %w[Whisky Gin Brandy Vodka Rum Tequila]
     @q = Cocktail.ransack(params[:q])
-    @classic_cocktails = @q.result
+    @classic_cocktails = @q.result.order(name: :asc)
   end
 
   def show; end

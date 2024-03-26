@@ -1,6 +1,4 @@
 <%= search_form_for @q do |f| %>
-  <div class="flex gap-2">
-    <%= f.text_field :name, class:"w-full rounded-md text-black"%>
-    <%= f.submit "Search" %>
-  </div>
+  <%= f.search_field :name_cont, class: "w-full rounded-md text-black", placeholder: "search name" %>
+  <%= f.submit %>
 <% end %>
