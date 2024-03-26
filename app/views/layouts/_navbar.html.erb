@@ -8,10 +8,14 @@
       <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
     </div>
   </div>
-  <div data-navbar-target="menu" class="absolute top-0 left-0 w-full h-0 overflow-hidden transition-all duration-500 bg-gray-500">
+  <div data-navbar-target="menu" class="absolute top-0 left-0 z-10 w-full h-0 overflow-hidden transition-all duration-500 bg-gray-500">
     <p class="my-4 mt-12 text-2xl text-center ">About Us</p>
-    <p class="my-4 text-2xl text-center ">Sign In</p>
-    <p class="my-4 text-2xl text-center ">Sign Up</p>
+    <% if current_user %>
+      <%= button_to "Logout", destroy_user_session_path, data:{ turbo: false }, method: :delete, class:"my-4 mt-12 text-2xl text-center "%>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class:"my-4 mt-12 text-2xl text-center block " %>
+      <%= link_to "Create Account", new_user_registration_path, class:"my-4 mt-12 text-2xl text-center block bg-black " %>
+    <% end %>
     <button data-action="click->navbar#closeMenu" class="absolute top-0 right-0 p-2 text-2xl">X</button>
   </div>
 </div>

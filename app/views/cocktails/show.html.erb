@@ -11,7 +11,10 @@
     <% end %>
   </div>
   <div class="lg:mx-4">
-    <h2 class="text-4xl font-bold"><%= @cocktail.name %> </h2>
+    <div class="flex items-end justify-between ">
+      <h2 class="text-4xl font-bold"><%= @cocktail.name %> </h2>
+      <p>00 ♥</p>
+    </div>
     <p class="lg:text-xl"><%= @cocktail.introduce%> </p>
     <p class="lg:text-xl">
       <span class="font-bold ">Type :</span>

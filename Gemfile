@@ -73,3 +73,8 @@ gem "aws-sdk-s3"
 gem "pg"
 gem "ransack"
 gem "uuid7", "~> 0.2.0"
+
+gem "devise"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection", "~>1.0"
