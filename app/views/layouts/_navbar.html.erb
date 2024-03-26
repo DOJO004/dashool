@@ -1,9 +1,17 @@
-<div class="flex items-center justify-between">
-  <%= link_to root_path do%>
-    <%= image_tag "https://fakeimg.pl/100x100", class:"w-16"%>
-  <% end %>
-  <div class="p-1 ">
-    <span class="block w-8 h-1 my-2 bg-white rounded-md "></span>
-    <span class="block w-8 h-1 my-2 bg-white rounded-md "></span>
+<div data-controller="navbar" class="relative " >
+  <div class="flex items-center justify-between">
+    <%= link_to root_path do%>
+      <%= image_tag "https://fakeimg.pl/100x100", class:"w-16"%>
+    <% end %>
+    <div data-action="click->navbar#showMenu" class="p-1 " >
+      <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
+      <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
+    </div>
+  </div>
+  <div data-navbar-target="menu" class="absolute top-0 left-0 w-full h-0 overflow-hidden transition-all duration-500 bg-gray-500">
+    <p class="my-4 mt-12 text-2xl text-center ">About Us</p>
+    <p class="my-4 text-2xl text-center ">Sign In</p>
+    <p class="my-4 text-2xl text-center ">Sign Up</p>
+    <button data-action="click->navbar#closeMenu" class="absolute top-0 right-0 p-2 text-2xl">X</button>
   </div>
 </div>
