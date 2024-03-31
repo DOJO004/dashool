@@ -1,0 +1,43 @@
+<div class="w-full max-w-3xl mx-auto">
+  <h2>Sign up</h2>
+  <div class="flex justify-center my-12">
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false } do%>
+        <%= image_tag "google_icon.png", class:"w-8"%>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="relative my-12">
+    <hr>
+    <p class="absolute top-0 w-12 text-center -translate-x-1/2 -translate-y-1/2 bg-neutral-800 left-1/2">or</p>
+  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="my-4">
+      <%= f.label :full_name %><br />
+      <%= f.email_field :full_name, autofocus: true, class:"w-full rounded-md text-black" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autocomplete: "email", class:"w-full rounded-md text-black" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class:"w-full rounded-md text-black" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-full rounded-md text-black" %>
+    </div>
+    <div class="p-2 my-4 text-center rounded-md bg-amber-900">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+  <div class="flex gap-2">
+    <p>Already have an account?</p>
+    <%= link_to "Log in", new_session_path(resource_name), class:"text-blue-500" %><br />
+  </div>
+</div>
