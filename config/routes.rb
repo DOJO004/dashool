@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-
   resources :cocktails
+
+  get "/users/:id", to: "users#show", as:"user"
+  get "setting", to: "users#setting"
 end

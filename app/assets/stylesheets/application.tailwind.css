@@ -29,3 +29,7 @@ a {
 label {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl;
 }
+
+button {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl
+}
