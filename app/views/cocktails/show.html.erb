@@ -3,7 +3,7 @@
     <%= link_to :back, class:"absolute top-0 left-0 -translate-y-8 invert" do%>
       <%= image_tag "arrow_back_icon.png"%>
     <% end %>
-    <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500 text-xl"%>
+    <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500"%>
     <% if @cocktail.main_image.attached? %>
       <%= image_tag @cocktail.main_image, class:"w-full rounded-md max-w-md mx-auto"%>
     <% else %>
@@ -11,28 +11,28 @@
     <% end %>
   </div>
   <div class="lg:mx-4">
-    <div class="flex items-end justify-between ">
-      <h2 class="text-4xl font-bold"><%= @cocktail.name %> </h2>
+    <div class="flex items-end justify-between my-4">
+      <h2 class="font-bold "><%= @cocktail.name %> </h2>
       <p>00 ♥</p>
     </div>
-    <p class="lg:text-xl"><%= @cocktail.introduce%> </p>
-    <p class="lg:text-xl">
+    <p class="my-4"><%= @cocktail.introduce%> </p>
+    <p class="my-4">
       <span class="font-bold ">Type :</span>
       <%= @cocktail.type_of%>
     </p>
-    <p class="lg:text-xl">
+    <p class="my-4">
       <span class="font-bold ">Base :</span>
       <%= @cocktail.base_wine%>
     </p>
-    <p class="lg:text-xl">
+    <p class="my-4">
       <span class="font-bold ">Skill :</span>
       <%= @cocktail.skill%>
     </p>
-    <p class="lg:text-xl">
+    <p class="my-4">
       <span class="font-bold ">Drink Style : </span>
       <%= @cocktail.drink_style%>
     </p>
-    <p class="lg:text-xl">
+    <p class="my-4">
       <span class="font-bold ">History :</span>
       <%= @cocktail.history%>
     </p>
