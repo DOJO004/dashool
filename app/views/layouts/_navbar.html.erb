@@ -9,14 +9,14 @@
     </div>
   </div>
   <div data-navbar-target="menu" class="fixed top-0 left-0 z-10 w-full h-0 overflow-hidden transition-all duration-500 bg-neutral-900 ">
-    <p class="my-4 mt-12 text-center ">About Us</p>
+    <p class="my-4 mt-12 text-center "><%= t("navbar.about_dashool")%></p>
     <% if current_user %>
-      <%= link_to "Profile", user_path(id: current_user.id), class:"my-4 mt-12 block text-center"%>
-      <%= link_to "Setting", setting_path, class:"my-4 mt-12 block text-center"%>
-      <%= button_to "Logout", destroy_user_session_path, data:{ turbo: false }, method: :delete, class:"my-4 mt-12  w-full "%>
+      <%= link_to t("navbar.profile"), user_path(id: current_user.id), class:"my-4 mt-12 block text-center"%>
+      <%= link_to t("navbar.setting"), setting_path, class:"my-4 mt-12 block text-center"%>
+      <%= button_to t("navbar.logout"), destroy_user_session_path, data:{ turbo: false }, method: :delete, class:"my-4 mt-12  w-full "%>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class:"my-4 mt-12  text-center block " %>
-      <%= link_to "Create Account", new_user_registration_path, class:"my-4 mt-12  text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
+      <%= link_to t("navbar.login"), new_user_session_path, class:"my-4 mt-12  text-center block " %>
+      <%= link_to t("navbar.create_account"), new_user_registration_path, class:"my-4 mt-12  text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
     <% end %>
     <button data-action="click->navbar#closeMenu" class="absolute top-0 right-0 p-2 ">X</button>
   </div>

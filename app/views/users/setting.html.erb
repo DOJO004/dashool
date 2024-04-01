@@ -1,8 +1,15 @@
 <div class="w-full max-w-3xl mx-auto">
-  <h2>Setting</h2>
+  <h2><%= t("setting.title")%></h2>
   <ul>
     <li class="w-full my-4 text-center border-b">
-      <%= link_to "Edit", edit_user_registration_path %>
+      <%= link_to t("setting.edit"), edit_user_registration_path %>
+    </li>
+    <li class="w-full my-4 text-center border-b">
+      <%= t("setting.language") %>
+    </li>
+    <li class="h-0 overflow-hidden">
+      <%= link_to "中文版", :locale => "zh-TW", class:"w-full"%>
+      <%= link_to "English", :locale => "en", class:"w-full"%>
     </li>
   </ul>
 </div>

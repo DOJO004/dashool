@@ -323,6 +323,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  i18n (~> 1.14)
   importmap-rails
   jbuilder
   omniauth
