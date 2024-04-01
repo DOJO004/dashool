@@ -8,10 +8,24 @@ en:
   navbar:
     about_dashool: "About Dashool"
     profile: "Profile"
-    setting: "Setting"
-    login: "Login"
-    logout: "Logout"
+    setting: "Settings"
+    login: "Log In"
+    logout: "Log Out"
     create_account: "Create Account"
+  setting:
+    language: "Language"
+    title: "Settings"
+    edit: "Edit User"
+  edit_user:
+    title: "Edit User"
+    full_name: "Full Name"
+    new_password: "New Password"
+    new_password_confirmation: "Confirm New Password"
+    current_password:
+      label: "Current Password"
+      description: "(We need your current password to confirm that it's really you making this change)"
+    update: "Update"
+  # devise
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
