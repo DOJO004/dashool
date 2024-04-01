@@ -10,4 +10,9 @@ Rails.application.routes.draw do
 
   get "/users/:id", to: "users#show", as:"user"
   get "setting", to: "users#setting"
+  get "cocktail_map", to: "pages#cocktail_map"
+
+  post '/get_user_location', to: 'pages#get_user_location'
+
 end
+

@@ -10,6 +10,7 @@
   </div>
   <div data-navbar-target="menu" class="fixed top-0 left-0 z-10 w-full h-0 overflow-hidden transition-all duration-500 bg-neutral-900 ">
     <p class="my-4 mt-12 text-center "><%= t("navbar.about_dashool")%></p>
+    <p class="my-4 mt-12 text-center "><%= link_to t("navbar.cocktail_map"), cocktail_map_path%></p>
     <% if current_user %>
       <%= link_to t("navbar.profile"), user_path(id: current_user.id), class:"my-4 mt-12 block text-center"%>
       <%= link_to t("navbar.setting"), setting_path, class:"my-4 mt-12 block text-center"%>
