@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: dojo11272
-  password: <%= Rails.application.credentials.dig( :database, :password) %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   host: localhost
 
 development:
