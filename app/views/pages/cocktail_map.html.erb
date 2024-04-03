@@ -5,7 +5,7 @@
     <div id="bar_info"></div>
   </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlVjjT_fjwhZCdnX4Z3bmQ6RpGgy4aphU&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_API"]%>&libraries=places&callback=initMap" async defer></script>
 <script>
   function initMap() {
   // 初始化地圖
@@ -36,7 +36,7 @@
       const location = `${userLocation.lat},${userLocation.lng}`;
       const radius = 3000; // 以米為單位，此處設置 3000 米
       const keyword = 'bar'; // 限制搜索結果只包含酒吧
-      const apiKey = 'AIzaSyBlVjjT_fjwhZCdnX4Z3bmQ6RpGgy4aphU'; // 你的 Google Maps API 金鑰
+      const apiKey = "<%= ENV["GOOGLE_MAP_API"]%>"; // 你的 Google Maps API 金鑰
 
       const nearbySearchURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
 
