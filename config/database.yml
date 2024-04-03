@@ -19,6 +19,6 @@ production:
   database: dashool_production
   username: <%= ENV["POSTGRES_USERNAME"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-  post: <%= ENV["POSTGRES_PORT"]%>
+  port: <%= ENV["POSTGRES_PORT"]%>
   host: <%= ENV["POSTGRES_HOST"]%>
 
