@@ -10,14 +10,25 @@
   </div>
   <div data-navbar-target="menu" class="fixed top-0 left-0 z-10 w-full h-0 overflow-hidden transition-all duration-500 bg-neutral-900 ">
     <p class="my-4 mt-12 text-center "><%= t("navbar.about_dashool")%></p>
-    <p class="my-4 mt-12 text-center "><%= link_to t("navbar.cocktail_map"), cocktail_map_path%></p>
+    <p class="my-4 text-center "><%= link_to t("navbar.cocktail_map"), cocktail_map_path%></p>
+    <div data-controller="show-language" class="w-full max-w-3xl mx-auto my-4 cursor-pointer">
+      <p data-action="click->show-language#show" class="w-full text-center">
+        <%= t("setting.language") %>
+      </p>
+      <div data-show-language-target="language" class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <div class="p-2 rounded-md bg-neutral-700">
+          <%= link_to "中文", { locale: "tw" }, class: "w-full block my-4 text-center " %>
+          <%= link_to "English", { locale: "en" }, class: "w-full block my-4 text-center " %>
+        </div>
+      </div>
+    </div>
     <% if current_user %>
-      <%= link_to t("navbar.profile"), user_path(id: current_user.id), class:"my-4 mt-12 block text-center"%>
-      <%= link_to t("navbar.setting"), setting_path, class:"my-4 mt-12 block text-center"%>
+      <%= link_to t("navbar.profile"), user_path(id: current_user.id), class:"my-4  block text-center"%>
+      <%= link_to t("navbar.setting"), setting_path, class:"my-4  block text-center"%>
       <%= button_to t("navbar.logout"), destroy_user_session_path, data:{ turbo: false }, method: :delete, class:"my-4 mt-12  w-full "%>
     <% else %>
-      <%= link_to t("navbar.login"), new_user_session_path, class:"my-4 mt-12  text-center block " %>
-      <%= link_to t("navbar.create_account"), new_user_registration_path, class:"my-4 mt-12  text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
+      <%= link_to t("navbar.login"), new_user_session_path, class:"my-4   text-center block " %>
+      <%= link_to t("navbar.create_account"), new_user_registration_path, class:"my-4   text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
     <% end %>
     <button data-action="click->navbar#closeMenu" class="absolute top-0 right-0 p-2 ">X</button>
   </div>

@@ -3,6 +3,21 @@ tw:
   root:
     title: "Dashool"
     sub_title: "全台最大調酒社群"
+  sign_up:
+    email: "電子郵件"
+    password: "密碼"
+    password_confirmation: "確認密碼"
+    full_name: "暱稱" 
+    sign_up: "註冊"
+    ready_to_sign_up: "已經註冊了嗎?"
+    sign_in: "登入"
+  sign_in:
+    email: "電子郵件"
+    password: "密碼"
+    sign_in: "登入"
+    sign_up: "註冊"
+    forgot_your_password: "忘記密碼"
+    dont_have_an_account: "還沒有帳戶嗎?"
   navbar:
     about_dashool: "關於 Dashool"
     profile: "個人檔案"
@@ -24,3 +39,65 @@ tw:
       label: "舊密碼"
       description: "(我們需要舊密碼才能確認是您本人進行的修改)" 
     update: "更新"
+  devise:
+    confirmations:
+      confirmed: "您的電子郵件地址已成功確認。"
+      send_instructions: "您將收到一封包含確認您的電子郵件地址指示的郵件。"
+      send_paranoid_instructions: "如果您的電子郵件地址存在於我們的數據庫中，您將收到一封包含確認您的電子郵件地址指示的郵件。"
+    failure:
+      already_authenticated: "您已經登入了。"
+      inactive: "您的帳號尚未啟用。"
+      invalid: "無效的 %{authentication_keys} 或密碼。"
+      locked: "您的帳號已被鎖定。"
+      last_attempt: "您還有一次嘗試機會，否則您的帳號將被鎖定。"
+      not_found_in_database: "無效的 %{authentication_keys} 或密碼。"
+      timeout: "您的會話已過期。請重新登入以繼續。"
+      unauthenticated: "您需要先登入或註冊才能繼續。"
+      unconfirmed: "您需要在繼續之前確認您的電子郵件地址。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認指示"
+      reset_password_instructions:
+        subject: "重設密碼指示"
+      unlock_instructions:
+        subject: "解鎖指示"
+      email_changed:
+        subject: "郵件地址已更改"
+      password_change:
+        subject: "密碼已更改"
+    omniauth_callbacks:
+      failure: "無法從 %{kind} 進行身份驗證，原因是 \"%{reason}\"。"
+      success: "已成功從 %{kind} 帳戶進行身份驗證。"
+    passwords:
+      no_token: "您無法在沒有來自密碼重設郵件的情況下訪問此頁面。如果您確實來自密碼重設郵件，請確保您使用了提供的完整 URL。"
+      send_instructions: "您將收到一封包含重設密碼指示的郵件。"
+      send_paranoid_instructions: "如果您的電子郵件地址存在於我們的數據庫中，您將收到一封包含重設密碼連結的郵件。"
+      updated: "您的密碼已成功更改。您現在已登入。"
+      updated_not_active: "您的密碼已成功更改。"
+    registrations:
+      destroyed: "再見！您的帳號已成功取消。希望能夠再次見到您。"
+      signed_up: "歡迎！您已成功註冊。"
+      signed_up_but_inactive: "您已成功註冊。但是，我們無法登入您，因為您的帳號尚未啟用。"
+      signed_up_but_locked: "您已成功註冊。但是，我們無法登入您，因為您的帳號已被鎖定。"
+      signed_up_but_unconfirmed: "已向您的電子郵件地址發送了包含確認鏈接的消息。請按照鏈接以啟用您的帳戶。"
+      update_needs_confirmation: "您已成功更新您的帳戶，但我們需要驗證您的新郵件地址。請檢查您的電子郵件並按照確認鏈接以確認您的新郵件地址。"
+      updated: "您的帳戶已成功更新。"
+      updated_but_not_signed_in: "您的帳戶已成功更新，但由於您更改了密碼，您需要重新登入。"
+    sessions:
+      signed_in: "登入成功。"
+      signed_out: "登出成功。"
+      already_signed_out: "已登出成功。"
+    unlocks:
+      send_instructions: "您將收到一封包含解鎖帳戶指示的郵件。"
+      send_paranoid_instructions: "如果您的帳戶存在，您將收到一封包含解鎖帳戶指示的郵件。"
+      unlocked: "您的帳戶已成功解鎖。請登入以繼續。"
+  errors:
+    messages:
+      already_confirmed: "已經確認，請嘗試登入"
+      confirmation_period_expired: "需要在 %{period} 內確認，請請求新的確認郵件"
+      expired: "已過期，請請求新的確認郵件"
+      not_found: "未找到"
+      not_locked: "未被鎖定"
+      not_saved:
+        one: "由於以下 1 個錯誤，此 %{resource} 未能保存："
+        other: "由於以下 %{count} 個錯誤，此 %{resource} 未能保存："
