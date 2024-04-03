@@ -1,20 +1,34 @@
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   hello: "Hello!"
   root:
     title: "Dashool"
-    sub_title: "The largest cocktail community in Taiwan"
+    sub_title: "Taiwan's Largest Cocktail Community"
+  sign_up:
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Confirm Password"
+    full_name: "Full Name"
+    sign_up: "Sign Up"
+    ready_to_sign_up: "Already have an account?"
+    sign_in: "Sign In"
+  sign_in:
+    email: "Email"
+    password: "Password"
+    sign_in: "Sign In"
+    sign_up: "Sign Up"
+    forgot_your_password: "Forgot Your Password"
+    dont_have_an_account: "Don't have an account?"
   navbar:
     about_dashool: "About Dashool"
     profile: "Profile"
-    setting: "Settings"
+    setting: "Setting"
     login: "Log In"
     logout: "Log Out"
     create_account: "Create Account"
+    cocktail_map: "Cocktail Map"
   setting:
     language: "Language"
-    title: "Settings"
+    title: "Setting"
     edit: "Edit User"
   edit_user:
     title: "Edit User"
@@ -23,14 +37,13 @@ en:
     new_password_confirmation: "Confirm New Password"
     current_password:
       label: "Current Password"
-      description: "(We need your current password to confirm that it's really you making this change)"
+      description: "(We need your current password to confirm your changes)"
     update: "Update"
-  # devise
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address."
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -57,8 +70,8 @@ en:
       success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      send_instructions: "You will receive an email with instructions on how to reset your password."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
@@ -75,8 +88,8 @@ en:
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      send_instructions: "You will receive an email with instructions for how to unlock your account."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:

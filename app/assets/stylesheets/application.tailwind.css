@@ -33,3 +33,7 @@ label {
 button {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl
 }
+
+.field_with_errors label{
+  @apply text-red-500
+}

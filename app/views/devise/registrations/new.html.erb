@@ -1,5 +1,5 @@
 <div class="w-full max-w-3xl mx-auto">
-  <h2>Sign up</h2>
+  <h2><%= t("sign_up.sign_up")%> </h2>
   <div class="flex justify-center my-12">
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false } do%>
@@ -14,30 +14,27 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="my-4">
-      <%= f.label :full_name %><br />
+      <%= f.label :full_name, t("sign_up.full_name") %><br />
       <%= f.email_field :full_name, autofocus: true, class:"w-full rounded-md text-black" %>
     </div>
     <div class="my-4">
-      <%= f.label :email %><br />
+      <%= f.label :email, t("sign_up.email") %><br />
       <%= f.email_field :email, autocomplete: "email", class:"w-full rounded-md text-black" %>
     </div>
     <div class="my-4">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+      <%= f.label :password, t("sign_up.password") %>
       <%= f.password_field :password, autocomplete: "new-password", class:"w-full rounded-md text-black" %>
     </div>
     <div class="my-4">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation, t("sign_up.password_confirmation") %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-full rounded-md text-black" %>
     </div>
-    <div class="p-2 my-4 text-center rounded-md bg-amber-900">
-      <%= f.submit "Sign up" %>
+    <div class="my-4 text-center rounded-md bg-amber-900">
+      <%= f.submit t("sign_up.sign_up"), class:"w-full cursor-pointer p-2" %>
     </div>
   <% end %>
   <div class="flex gap-2">
-    <p>Already have an account?</p>
-    <%= link_to "Log in", new_session_path(resource_name), class:"text-blue-500" %><br />
+    <p><%= t("sign_up.ready_to_sign_up")%></p>
+    <%= link_to t("sign_up.sign_in"), new_session_path(resource_name), class:"text-blue-500" %><br />
   </div>
 </div>
