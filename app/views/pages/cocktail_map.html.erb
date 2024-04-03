@@ -1,8 +1,96 @@
-<div>
-  <h2>Cocktail Map</h2>
-  <h3>Find your nearest bar</h3>
-  <div data-controller="get-location">
-    <div id="map" style="width: 100%; height: 400px;"></div>
+<div class="w-full ">
+  <h1>Map</h1>
+  <div>
+    <div id="map" class="w-full h-[400px]"></div>
+    <div id="bar_info"></div>
   </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlVjjT_fjwhZCdnX4Z3bmQ6RpGgy4aphU&libraries=places&callback=initMap" async defer></script>
+<script>
+  function initMap() {
+  // 初始化地圖
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 15
+  });
+
+  // 獲取用戶位置
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var userLocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      // 將地圖中心設置為用戶位置
+      map.setCenter(userLocation);
+
+      // 在地圖上添加用戶標記
+      var userMarker = new google.maps.Marker({
+        position: userLocation,
+        map: map,
+        title: 'Your Location'
+      });
+
+      // 構建 Nearby Search URL
+      const location = `${userLocation.lat},${userLocation.lng}`;
+      const radius = 3000; // 以米為單位，此處設置 3000 米
+      const keyword = 'bar'; // 限制搜索結果只包含酒吧
+      const apiKey = 'AIzaSyBlVjjT_fjwhZCdnX4Z3bmQ6RpGgy4aphU'; // 你的 Google Maps API 金鑰
+
+      const nearbySearchURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
+
+      // 發送 HTTP 請求
+      fetch(nearbySearchURL)
+        .then(response => response.json())
+        .then(data => {
+          // 處理回應
+          const places = data.results;
+          const info = document.getElementById("bar_info");
+
+          info.innerHTML = "";
+
+
+          // 在地圖上添加酒吧標記
+          places.forEach(place => {
+            const placeLocation = {
+              lat: place.geometry.location.lat,
+              lng: place.geometry.location.lng
+            };
+
+            const contentString = `<div class="text-black">${place.name}</div>`
+
+            const infowindow = new google.maps.InfoWindow({
+              content: contentString,
+            });
+
+            const marker = new google.maps.Marker({
+              position: placeLocation,
+              map: map,
+              title: place.name
+            });
+
+            marker.addListener("click", () => {
+              infowindow.open({
+                anchor: marker,
+                map,
+              });
+            });
+
+            const placeInfo = document.createElement("div");
+            placeInfo.classList.add("rounded-md", "border", "my-2", "p-2"); // 添加 class
+            placeInfo.innerHTML = `
+            <p>Name:<strong>${place.name}</strong></p>
+            <p>Start: ${place.rating} <span class="text-sm">User ratings total: ${place.user_ratings_total}</span></p>
+            <p>Address:${place.vicinity}</p>
+            `;
+            info.appendChild(placeInfo);
+            });
+        })
+        .catch(error => {
+          console.error('Error fetching nearby bars:', error);
+        });
+    });
+  }
+  }
+</script>

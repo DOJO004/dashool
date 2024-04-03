@@ -138,3 +138,7 @@ Style/ClassAndModuleChildren:
 # "Wait! What's #{this}!"
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+  
+Layout:
+  IndentationWidth: 4
+
