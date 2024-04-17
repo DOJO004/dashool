@@ -18,11 +18,11 @@
   <body class="bg-neutral-800 text-neutral-200">
     <%= render "layouts/navbar"%>
     <main class="container flex max-w-6xl px-5 mx-auto mt-12 ">
-      <div class="absolute left-0 top-14 ">
+      <div class="w-full ">
         <p class="text-green-500"><%= notice %></p>
         <p class="text-red-500 "><%= alert %></p>
+        <%= yield %>
       </div>
-      <%= yield %>
     </main>
   </body>
 </html>

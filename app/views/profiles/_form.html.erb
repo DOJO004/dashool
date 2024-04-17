@@ -1,0 +1,19 @@
+<%= form_with(model: @profile, data: {turbo: false}) do |f|%>
+  <div class="my-2">
+    <%= f.label :name%>
+    <%= f.text_field :name, class:"w-full rounded-md p-2 text-black "%>
+  </div>
+  <div class="my-2">
+    <%= f.label :phone%>
+    <%= f.text_field :phone,type: "tel", class:"w-full rounded-md p-2 text-black "%>
+  </div>
+  <div class="my-2">
+    <%= f.label :address%>
+    <%= f.text_field :address, class:"w-full rounded-md p-2 text-black "%>
+  </div>
+  <div class="my-2">
+    <%= f.label :descript%>
+    <%= f.text_area :descript, rows: 15,  class:"w-full rounded-md p-2 text-black "%>
+  </div>
+  <%= f.submit "submit", class:"w-full rounded-md bg-amber-800 p-2 cursor-pointer hover:bg-amber-900"%>
+<% end %>
