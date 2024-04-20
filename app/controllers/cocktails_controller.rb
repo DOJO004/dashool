@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CocktailsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_cocktail, only: %i[show edit update destroy]
   def index
     @alcohol_category = %w[Whisky Gin Brandy Vodka Rum Tequila]

@@ -1,10 +1,15 @@
-<%= search_form_for @q do |f| %>
-  <div class="flex gap-2 ">
-    <%= f.search_field :name_cont, class: "w-full rounded-md text-black", placeholder: "search name" %>
-    <button>
-      <span class=" material-symbols-outlined">
-        search
-      </span>
-    </button>
+<div>
+  <%= search_form_for @q, class:"col-start-1 col-end-5" do |f| %>
+    <div class="flex gap-2 ">
+      <%= f.search_field :name_cont, class: "w-full rounded-md text-black", placeholder: "search name" %>
+      <button>
+        <span class=" material-symbols-outlined">
+          search
+        </span>
+      </button>
+    </div>
+  <% end %>
+  <div class="flex justify-center my-4">
+    <%= link_to "+ 新增自己的酒譜", new_cocktail_path, class:"p-2 border  border-gray-500 rounded-md hover:border-white w-fit"%>
   </div>
-<% end %>
+</div>

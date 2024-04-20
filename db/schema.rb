@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_17_131044) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_20_120820) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_131044) do
     t.string "drink_style"
     t.string "skill"
     t.string "base_wine"
+    t.uuid "user_id"
+    t.index ["user_id"], name: "index_cocktails_on_user_id"
   end
 
   create_table "profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -84,5 +86,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_131044) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cocktails", "users"
   add_foreign_key "profiles", "users"
 end
