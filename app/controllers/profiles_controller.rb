@@ -11,7 +11,6 @@ class ProfilesController < ApplicationController
 
     def create
         @profile = current_user.build_profile(profile_params)
-
         if @profile.save
             redirect_to profile_path(@profile.id), notice: "Profile was successfully created."
         else
@@ -24,6 +23,13 @@ class ProfilesController < ApplicationController
     end
 
     def update
+        if @profile.update(profile_params)
+            redirect_to profile_path(@profile.id), notice: "Profile was successfully updated."
+        else
+            flash[:alert] = @profile.errors.full_messages
+            render :edit
+        end
+        
     end
 
     def destroy
