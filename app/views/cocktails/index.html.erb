@@ -13,8 +13,8 @@
         <div class="w-full my-2 border rounded-md ">
           <%= link_to cocktail_path(cocktail.id) do%>
             <div class="flex items-center w-full mx-auto">
-              <% if cocktail.main_image.attached? %>
-                <%= image_tag cocktail.main_image, class:"rounded-t-md "%>
+              <% if cocktail.images.attached? %>
+                <%= image_tag cocktail.images, class:"rounded-t-md "%>
               <% else %>
                 <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md "%>
               <% end %>

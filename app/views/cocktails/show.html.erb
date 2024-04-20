@@ -4,8 +4,8 @@
       <%= image_tag "arrow_back_icon.png"%>
     <% end %>
     <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500"%>
-    <% if @cocktail.main_image.attached? %>
-      <%= image_tag @cocktail.main_image, class:"w-full rounded-md max-w-md mx-auto"%>
+    <% if @cocktail.images.attached? %>
+      <%= image_tag @cocktail.images, class:"w-full rounded-md max-w-md mx-auto"%>
     <% else %>
       <%= image_tag "https://fakeimg.pl/300x300", class:"w-60 mx-auto rounded-md"%>
     <% end %>
