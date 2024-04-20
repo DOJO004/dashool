@@ -3,8 +3,8 @@
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" } %>
     <div id="image-preview" class="flex gap-2"></div>
-    <%= f.label :history %>
-    <%= f.text_area :history, placeholder: "撰寫說明 / 製作方法", class: "w-full rounded-md text-black min-h-64" %>
+    <%= f.label :introduce %>
+    <%= f.text_area :introduce, placeholder: "撰寫說明 / 製作方法", class: "w-full rounded-md text-black min-h-64" %>
     <%= f.label :name %>
     <%= f.text_field :name, class: "w-full rounded-md text-black" %>
     <%= f.label :base_wine %>
