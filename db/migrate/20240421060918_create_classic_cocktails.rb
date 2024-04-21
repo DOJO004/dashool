@@ -5,6 +5,7 @@ class CreateClassicCocktails < ActiveRecord::Migration[7.1]
       t.string :skill
       t.string :garnish
       t.string :glass
+      t.string :base_wine
       t.text :history
       t.text :ingredient
       t.text :method

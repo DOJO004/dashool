@@ -1,27 +1,44 @@
-<div>
-  <div>
-    image
-  </div>
+<div class="show_classic_cocltail">
   <div>
     <h2>
       <%= @classic_cocktail.name%>
     </h2>
-    <p>
-      History: <br>
-      <%= @classic_cocktail.history%>
-    </p>
-    <p>
-      Skill: <%= @classic_cocktail.skill%>
-    </p>
-    <p>
-      Garnish: <%= @classic_cocktail.garnish%>
-    </p>
-    <p>
-      Glass: <%= @classic_cocktail.glass%>
-    </p>
-    <p>
-      Method: <br>
-      <%= @classic_cocktail.method.gsub("\n", "<br>").html_safe %>
+    <div class="my-4">
+      <%= image_tag "https://fakeimg.pl/1920x1080/", class:"w-full rounded-md mx-auto md:w-10/12 lg:w-8/12 xl:w-6/12"%>
+    </div>
+    <div class="my-4">
+      <h3>History:</h3>
+      <p >
+        <%= @classic_cocktail.history%>
+      </p>
+    </div>
+    <div class="my-4">
+      <h3>Ingredient:</h3>
+      <%= @classic_cocktail.ingredient.gsub("\n", "<br>").html_safe%>
+    </div>
+    <div class="my-4">
+      <h3>Skill:</h3>
+      <p >
+        <%= @classic_cocktail.skill%>
+      </p>
+    </div>
+    <div class="my-4">
+      <h3>Garnish:</h3>
+      <p >
+        <%= @classic_cocktail.garnish%>
+      </p>
+    </div>
+    <div class="my-4">
+      <h3>Glass:</h3>
+      <p >
+        <%= @classic_cocktail.glass%>
+      </p>
+    </div>
+    <div class="my-4">
+      <h3>Method:</h3>
+      <p >
+        <%= @classic_cocktail.method.gsub("\n", "<br>").html_safe %>
+      </div>
     </p>
   </div>
 </div>

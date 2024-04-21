@@ -51,3 +51,12 @@ button {
 #cocktail_introduce{
   @apply bg-white text-black min-h-96 
 }
+
+.show_classic_cocltail ol li{
+  @apply list-disc ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+
+.show_classic_cocltail ul li{
+  @apply list-decimal ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+

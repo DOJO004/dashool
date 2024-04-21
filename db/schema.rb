@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_060918) do
     t.string "skill"
     t.string "garnish"
     t.string "glass"
+    t.string "base_wine"
     t.text "history"
     t.text "ingredient"
     t.text "method"
