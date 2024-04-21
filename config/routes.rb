@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   scope :users do 
     resources :profiles, except: %i[index]
   end
+  
   resources :cocktails
+  resources :classic_cocktails
 
   get "setting", to: "users#setting"
   get "cocktail_map", to: "pages#cocktail_map"

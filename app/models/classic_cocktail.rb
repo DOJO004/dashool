@@ -1,0 +1,2 @@
+class ClassicCocktail < ApplicationRecord
+end

@@ -1,0 +1,17 @@
+<%= form_with(model: @classic_cocktail) do |f|%>
+  <%= f.label :name%>
+  <%= f.text_field :name, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.label :history%>
+  <%= f.text_area :history, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.label :skill%>
+  <%= f.select :skill, [["build", "build"], ["stir", "stir"], ["shake", "shake"]], {}, class: "block w-full rounded-md p-2 text-black" %>
+  <%= f.label :garnish%>
+  <%= f.text_field :garnish, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.label :glass%>
+  <%= f.select :glass, [["Martini", "Martini"], ["Old Fashioned", "Old Fashioned"], ["Highball", "Highball"], ["Shot", "Shot"], ["Margarita", "Margarita"], ["Wine", "Wine"], ["Champagne", "Champagne"]], {}, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.label :ingredient%>
+  <%= f.text_field :ingredient, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.label :method%>
+  <%= f.text_area :name, class:"block w-full rounded-md p-2 text-black"%>
+  <%= f.submit "新增", class:"w-full p-2 bg-amber-900 my-4 cursor-pointer hover:bg-amber-800"%>
+<% end %> 

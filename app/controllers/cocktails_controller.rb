@@ -6,7 +6,8 @@ class CocktailsController < ApplicationController
 
   def index
     @q = Cocktail.ransack(params[:q])
-    @classic_cocktails = @q.result.order(name: :asc)
+    @cocktails = @q.result.order(name: :asc)
+    @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(6)
   end
 
   def show; end
