@@ -26,6 +26,15 @@
     </div>
     <div>
       <h3>經典調酒</h3>
+      <div>
+        <% @classic_cocktails.each do |classic_cocktail|%>
+          <%= link_to classic_cocktail_path(classic_cocktail.id) do %>
+            <div class="w-full p-2 my-4 border rounded-md">
+              <p><%= classic_cocktail.name%></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

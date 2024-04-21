@@ -1,0 +1,27 @@
+<div>
+  <div>
+    image
+  </div>
+  <div>
+    <h2>
+      <%= @classic_cocktail.name%>
+    </h2>
+    <p>
+      History: <br>
+      <%= @classic_cocktail.history%>
+    </p>
+    <p>
+      Skill: <%= @classic_cocktail.skill%>
+    </p>
+    <p>
+      Garnish: <%= @classic_cocktail.garnish%>
+    </p>
+    <p>
+      Glass: <%= @classic_cocktail.glass%>
+    </p>
+    <p>
+      Method: <br>
+      <%= @classic_cocktail.method.gsub("\n", "<br>").html_safe %>
+    </p>
+  </div>
+</div>

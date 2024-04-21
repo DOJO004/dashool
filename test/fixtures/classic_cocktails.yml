@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  history: MyText
+  skill: MyString
+  ingredient: MyText
+  garnish: MyString
+  method: MyText
+
+two:
+  name: MyString
+  history: MyText
+  skill: MyString
+  ingredient: MyText
+  garnish: MyString
+  method: MyText
