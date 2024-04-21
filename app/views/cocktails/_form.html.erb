@@ -1,19 +1,18 @@
-<%= form_with(model: @cocktail) do |f|%>
-  <%= f.label :main_image%>
-  <%= f.file_field :main_image, class:"w-full rounded-md"%>
-  <%= f.label :name%>
-  <%= f.text_field :name, class: "w-full rounded-md text-black"%>
-  <%= f.label :type_of%>
-  <%= f.text_field :type_of, class: "w-full rounded-md text-black"%>
-  <%= f.label :drink_style%>
-  <%= f.select(:drink_style, [["Light", "Light"], ["Middle", "Middle"], ["Strong", "Strong"]], {}, {class:"w-full rounded-md text-black"}) %>
-  <%= f.label :skill%>
-  <%= f.select(:skill, [["Build", "Build"], ["Stir", "Stir"], ["Shake", "Shake"]], {}, {class:"w-full rounded-md text-black"}) %>
-  <%= f.label :introduce%>
-  <%= f.text_field :introduce, class: "w-full rounded-md text-black"%>
-  <%= f.label :history%>
-  <%= f.text_area :history, class: "w-full rounded-md text-black min-h-60"%>
-  <div class="p-1 my-4 text-center bg-gray-500 rounded-md">
-    <%= f.submit "submit", class:"w-full"%>
-  </div>
-<% end %>
+<div data-controller="preview-img">
+  <%= form_with(model: @cocktail) do |f|%>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" } %>
+    <div id="image-preview" class="flex gap-2"></div>
+    <%= f.label :introduce %>
+    <%= f.rich_text_area  :introduce, placeholder: "撰寫說明 / 製作方法" %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "w-full rounded-md text-black" %>
+    <%= f.label :base_wine %>
+    <%= f.select :base_wine, [["Whisky","Whisky"], ["Gin", "Gin"], ["Tequila", "Tequila"], ["Vodka", "Vodka"], ["Rum", "Rum"], ["Brandy", "Brandy"]], {}, { class: "w-full rounded-md text-black" } %>
+    <%= f.label :skill %>
+    <%= f.select :skill, [["Build", "Build"], ["Stir", "Stir"], ["Shake", "Shake"]], {}, { class: "w-full rounded-md text-black" } %>
+    <div class="p-1 my-4 text-center bg-gray-500 rounded-md">
+      <%= f.submit "submit", class: "w-full" %>
+    </div>
+  <% end %>
+</div>

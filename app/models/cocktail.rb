@@ -1,5 +1,8 @@
 class Cocktail < ApplicationRecord
-  has_one_attached :main_image
+  has_rich_text :introduce
+  has_many_attached :images
+  
+  belongs_to :user
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[name base_wine]

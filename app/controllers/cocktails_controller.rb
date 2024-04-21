@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class CocktailsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_cocktail, only: %i[show edit update destroy]
+
   def index
-    @alcohol_category = %w[Whisky Gin Brandy Vodka Rum Tequila]
     @q = Cocktail.ransack(params[:q])
     @classic_cocktails = @q.result.order(name: :asc)
   end
@@ -42,7 +43,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :introduce, :type_of, :main_image, :history, :production_method,
+    params.require(:cocktail).permit(:name, :introduce, :type_of, :images, :history, :production_method,
                                      :drink_style, :skill,)
   end
 

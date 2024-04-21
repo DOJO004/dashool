@@ -1,31 +1,26 @@
 <div class="w-full ">
   <div>
     <h1 class="my-4 text-center "><%= t("root.title")%></h1>
-    <h2 class="my-4 text-center "><%= t("root.sub_title")%></h2>
+    <div class="my-4 text-center">
+      <h3 >
+        全台最大調酒知識庫
+        <br>
+      </h3>
+    </div>
   </div>
-  <div class="my-4">
+  <div class="my-4 gap2">
     <%= render "search_form"%>
   </div>
+  <div class="flex justify-center gap-4 my-4">
+    <%= link_to new_user_registration_path, class:"flex gap-2 items-center bg-amber-900 rounded-md p-2 hover:bg-amber-800" do%>
+      <%= image_tag "user.png", class:"w-4"%>
+      <p>註冊會員</p>
+    <% end %>
+    <%= link_to "+ 新增自己的酒譜", new_cocktail_path, class:"p-2 border  border-gray-500 rounded-md hover:border-white w-fit"%>
+  </div>
   <div>
-    <h3 class="font-bold ">Clasic Cocktail</h3>
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 ">
-      <% @classic_cocktails.each do |cocktail|%>
-        <div class="w-full my-2 border rounded-md ">
-          <%= link_to cocktail_path(cocktail.id) do%>
-            <div class="flex items-center w-full mx-auto">
-              <% if cocktail.main_image.attached? %>
-                <%= image_tag cocktail.main_image, class:"rounded-t-md "%>
-              <% else %>
-                <%= image_tag "https://fakeimg.pl/300x300", class:"w-full rounded-t-md "%>
-              <% end %>
-            </div>
-            <div class="flex justify-between p-2">
-              <p ><%= cocktail.name%> </p>
-              <button >♥</button>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+    <h3>熱門酒譜</h3>
+    <div>
     </div>
   </div>
 </div>

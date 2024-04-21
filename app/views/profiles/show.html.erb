@@ -1,0 +1,18 @@
+<div>
+  <h2>
+    <%= @profile.name%>
+    <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) if current_user.profile.name === @profile.name %>
+  </h2>
+  <p>
+    所在地:
+    <%= @profile.address%>
+  </p>
+  <p>
+    簡介: 
+    <%= @profile.descript.gsub!("\r\n", "<br>").html_safe
+%>
+  </p>
+  <div>
+    作品區
+  </div>
+</div>

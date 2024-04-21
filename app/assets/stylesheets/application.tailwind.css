@@ -1,6 +1,8 @@
+@import "actiontext.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
   @apply box-border p-0 m-0;
@@ -36,4 +38,16 @@ button {
 
 .field_with_errors label{
   @apply text-red-500
+}@import 'actiontext.css';
+
+#trix-toolbar-1 {
+  @apply sticky top-0 z-10
+}
+
+.trix-button-row{
+  @apply bg-white rounded-t-md
+}
+
+#cocktail_introduce{
+  @apply bg-white text-black min-h-96 
 }
