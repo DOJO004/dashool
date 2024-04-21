@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body class="mx-auto bg-neutral-800 text-neutral-200 lg:max-w-7xl">
-      <%= render "layouts/navbar"%>
-      <main class="container flex max-w-6xl px-5 mx-auto mt-12 ">
-        <div class="w-full ">
-          <p class="text-green-500"><%= notice %></p>
-          <p class="text-red-500 "><%= alert %></p>
-          <%= yield %>
+    <%= render "layouts/navbar"%>
+    <main class="container flex max-w-6xl px-5 mx-auto mt-12 ">
+      <div class="w-full ">
+        <p class="text-green-500"><%= notice %></p>
+        <p class="text-red-500 "><%= alert %></p>
+        <%= yield %>
       </main>
     </div>
   </body>
