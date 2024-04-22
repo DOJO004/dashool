@@ -59,4 +59,7 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["sh", "-c", "./bin/rails server && ./bin/rails db:seed"]
+CMD ["./bin/rails", "server"]
+
+# Run rails db:seed
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate db:seed
