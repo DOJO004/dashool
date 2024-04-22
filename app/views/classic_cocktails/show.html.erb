@@ -1,10 +1,13 @@
 <div class="show_classic_cocltail">
+  <%= link_to :back, aria: {label:"back link"}, class:"w-fit block hover:scale-125" do%>
+    <%= image_tag "arrow_back_icon.png", alt:"back icon"%>
+  <% end %>
   <div>
     <h2>
       <%= @classic_cocktail.name%>
     </h2>
     <div class="my-4">
-      <%= image_tag "https://fakeimg.pl/1920x1080/", class:"w-full rounded-md mx-auto md:w-10/12 lg:w-8/12 xl:w-6/12"%>
+      <%= image_tag "https://fakeimg.pl/1920x1080/", alt:"#{@classic_cocktail.name} image", class:"w-full rounded-md mx-auto md:w-10/12 lg:w-8/12 xl:w-6/12"%>
     </div>
     <div class="my-4">
       <h3>History:</h3>

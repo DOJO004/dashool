@@ -5,8 +5,7 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show edit update destroy]
 
   def index
-    @q = Cocktail.ransack(params[:q])
-    @cocktails = @q.result.order(name: :asc)
+    @cocktail_count = Cocktail.count + ClassicCocktail.count
     @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(6)
   end
 
@@ -45,7 +44,7 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name, :introduce, :type_of, :images, :history, :production_method,
-                                     :drink_style, :skill,)
+                                     :drink_style, :skill)
   end
 
   def set_cocktail

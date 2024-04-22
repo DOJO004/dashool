@@ -1,0 +1,21 @@
+<div>
+  <h1>搜尋</h1>
+  <%= form_tag(search_path, method: "get", class:"my-4") do %>
+    <div class="flex items-center gap-2">
+      <%= text_field_tag(:search_value, params[:search_value], placeholder: "搜尋調酒名稱", class:"w-full rounded-md p-2 text-black") %>
+      <%= image_submit_tag("search.png", alt: "Search", width:30) %>
+    </div>
+  <% end %>
+  <h2><%= params[:search_value]%></h2>
+  <div>
+    <% if @data.length == 0%>
+      <h3 class="text-center ">我沒喝醉! 只是還沒醒而已!!</h3>
+      <p class="text-center">(未搜尋到相關資料)</p>
+    <% end %>
+    <% @data.each do |data|%>
+      <%= link_to data, class:"block my-2 border p-2 rounded-md" do%>
+        <%= data.name%>
+      <% end %>
+    <% end %>
+  </div>
+</div>
