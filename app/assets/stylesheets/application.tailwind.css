@@ -40,6 +40,29 @@ button {
   @apply text-red-500
 }@import 'actiontext.css';
 
+/* trix */
+.trix-content h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl !important
+}
+.trix-content a {
+  @apply text-blue-500
+}
+.trix-content em {
+  @apply italic
+}
+.trix-content blockquote {
+  @apply my-4
+}
+.trix-content ul li{
+  @apply list-disc ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+.trix-content ol li{
+  @apply list-decimal ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+.trix-dialog__link-fields {
+  @apply text-black
+}
+
 #trix-toolbar-1 {
   @apply sticky top-0 z-10
 }
@@ -52,11 +75,30 @@ button {
   @apply bg-white text-black min-h-96 
 }
 
+/* show_classic_cocltail */
 .show_classic_cocltail ol li{
   @apply list-disc ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
 }
 
 .show_classic_cocltail ul li{
+  @apply list-decimal ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+
+/* .show_cocktail */
+.show_cocktail ol {
+  @apply my-4
+}
+.show_cocktail ul {
+  @apply my-4
+}
+.show_cocktail img {
+  @apply my-4
+}
+.show_cocktail ol li{
+  @apply list-disc ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
+}
+
+.show_cocktail ul li{
   @apply list-decimal ml-4 text-base md:text-lg lg:text-xl xl:text-2xl
 }
 

@@ -1,11 +1,13 @@
-<div class="relative lg:flex">
+<div class="relative lg:flex show_cocktail">
   <div>
     <%= link_to :back, class:"absolute top-0 left-0 -translate-y-8 invert" do%>
       <%= image_tag "arrow_back_icon.png"%>
     <% end %>
     <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500"%>
     <% if @cocktail.images.attached? %>
-      <%= image_tag @cocktail.images, class:"w-full rounded-md max-w-md mx-auto"%>
+      <% @cocktail.images.each do |image|%>
+        <%= image_tag image.url , class:"w-full rounded-md max-w-md mx-auto"%>
+      <% end %>
     <% else %>
       <%= image_tag "https://fakeimg.pl/300x300", class:"w-60 mx-auto rounded-md"%>
     <% end %>
@@ -15,11 +17,6 @@
       <h2 class="font-bold "><%= @cocktail.name %> </h2>
       <p>00 ♥</p>
     </div>
-    <p class="my-4"><%= @cocktail.introduce%> </p>
-    <p class="my-4">
-      <span class="font-bold ">Type :</span>
-      <%= @cocktail.type_of%>
-    </p>
     <p class="my-4">
       <span class="font-bold ">Base :</span>
       <%= @cocktail.base_wine%>
@@ -28,13 +25,8 @@
       <span class="font-bold ">Skill :</span>
       <%= @cocktail.skill%>
     </p>
-    <p class="my-4">
-      <span class="font-bold ">Drink Style : </span>
-      <%= @cocktail.drink_style%>
-    </p>
-    <p class="my-4">
-      <span class="font-bold ">History :</span>
-      <%= @cocktail.history%>
-    </p>
+    <div>
+      <%= @cocktail.introduce%>
+    </div>
   </div>
 </div>

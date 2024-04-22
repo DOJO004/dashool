@@ -1,5 +1,5 @@
 <div data-controller="preview-img">
-  <%= form_with(model: @cocktail) do |f|%>
+  <%= form_with(model: @cocktail, data:{ turbo: false }) do |f|%>
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" } %>
     <div id="image-preview" class="flex gap-2"></div>

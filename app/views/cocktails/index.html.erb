@@ -5,7 +5,7 @@
       <h2 >
         全台最大調酒知識庫
       </h2>
-      <p>目前擁有調酒數: <%= @cocktail_count%></p>
+      <h2>隨時隨地分享創意</h2>
     </div>
   </div>
   <div class="my-4 gap2">
@@ -28,6 +28,16 @@
   <div>
     <div>
       <h3>熱門酒譜</h3>
+      <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+        <% @cocktails.each do |cocktail|%>
+          <%= link_to cocktail_path(cocktail.id) do %>
+            <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
+              <p><%= cocktail.user.full_name %></p>
+              <p><%= cocktail.name%></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div>
       <h3>經典調酒</h3>

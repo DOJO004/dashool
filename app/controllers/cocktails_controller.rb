@@ -5,7 +5,7 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show edit update destroy]
 
   def index
-    @cocktail_count = Cocktail.count + ClassicCocktail.count
+    @cocktails = Cocktail.order("RANDOM()").limit(6)
     @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(6)
   end
 
@@ -16,11 +16,12 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = current_user.cocktails.build(cocktail_params)
 
-    if @cocktail.save
-      redirect_to root_path
+    if @cocktail
+      redirect_to @cocktail, notice: "Cocktail was successfully created."
     else
+      flash.now[:alert] = "Cocktail was not created."
       render :new
     end
   end
@@ -43,8 +44,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :introduce, :type_of, :images, :history, :production_method,
-                                     :drink_style, :skill)
+    params.require(:cocktail).permit(:name, :skill, :base_wine, :introduce, images: [])
   end
 
   def set_cocktail
