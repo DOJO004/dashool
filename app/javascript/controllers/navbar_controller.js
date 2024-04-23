@@ -4,24 +4,22 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["menu"];
 
-  connect() {
-  }
+  connect() {}
 
   showMenu() {
     const menu = this.menuTarget;
 
-
     // 使用 contains 而不是 include，並修正 if 條件語句的錯誤
-    if (menu.classList.contains("h-0")) {
-      menu.classList.add("h-screen");
-      menu.classList.remove("h-0");
+    if (menu.classList.contains("w-0")) {
+      menu.classList.add("w-96");
+      menu.classList.remove("w-0");
     }
   }
 
-  closeMenu(){
+  closeMenu() {
     const menu = this.menuTarget;
 
-    menu.classList.add("h-0");
-    menu.classList.remove("h-screen"); 
+    menu.classList.add("w-0");
+    menu.classList.remove("w-96");
   }
 }
