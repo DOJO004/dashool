@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
-    before_action :set_user, olny: %i[show setting]
-    before_action :authenticate_user! 
+  before_action :set_user, olny: %i[show setting]
+  before_action :authenticate_user!
 
-    def show
-    end
+  def show; end
 
-    def setting
-    end
+  def setting; end
 
-    private
+  private
 
-    def set_user
-        @user = User.find(current_user.id)
-    end
+  def set_user
+    @user = User.find(current_user.id)
+  end
 end

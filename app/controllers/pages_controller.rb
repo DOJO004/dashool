@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  def cocktail_map
-  end
+  def cocktail_map; end
 
   def search
     search_value = params[:search_value]

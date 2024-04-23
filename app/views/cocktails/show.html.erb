@@ -1,13 +1,23 @@
-<div class="relative lg:flex show_cocktail">
+<div class="relative show_cocktail">
   <div>
     <%= link_to :back, class:"absolute top-0 left-0 -translate-y-8 invert" do%>
       <%= image_tag "arrow_back_icon.png"%>
     <% end %>
-    <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500"%>
+    <% if current_user && current_user.cocktails.find_by(id: @cocktail.id) %>
+      <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500" %>
+    <% end %>
     <% if @cocktail.images.attached? %>
-      <% @cocktail.images.each do |image|%>
-        <%= image_tag image.url , class:"w-full rounded-md max-w-md mx-auto"%>
-      <% end %>
+      <div class=" swiper mySwiper" data-controller="swiper">
+        <div class="swiper-wrapper">
+          <% @cocktail.images.each do |image|%>
+            <div class="swiper-slide">
+              <%= image_tag image.url , class:"w-full rounded-md max-w-md mx-auto"%>
+            </div>
+          <% end %>
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
     <% else %>
       <%= image_tag "https://fakeimg.pl/300x300", class:"w-60 mx-auto rounded-md"%>
     <% end %>
@@ -30,3 +40,4 @@
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

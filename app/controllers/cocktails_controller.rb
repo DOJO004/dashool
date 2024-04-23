@@ -18,7 +18,7 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = current_user.cocktails.build(cocktail_params)
 
-    if @cocktail
+    if @cocktail.save
       redirect_to @cocktail, notice: "Cocktail was successfully created."
     else
       flash.now[:alert] = "Cocktail was not created."

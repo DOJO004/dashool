@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 user = {
   email: "chendojo004@gmail.com",
   password: ENV["USER_PASSWORD"],

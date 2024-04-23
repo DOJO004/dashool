@@ -1,35 +1,27 @@
 class ClassicCocktailsController < ApplicationController
-    before_action :set_classic_cocktail, only: %i[show edit update destroy]
-    
-    def index
-    end
+  before_action :set_classic_cocktail, only: %i[show edit update destroy]
 
-    def show
-    end
+  def index; end
 
-    def new
-    end
+  def show; end
 
-    def create
-    end
+  def new; end
 
-    def edit
-    end
+  def create; end
 
-    def update
-    end
+  def edit; end
 
-    def destroy
-    end
+  def update; end
 
-    private
+  def destroy; end
 
-    def classic_cocktail_params
-        params.require(:classic_cocktail).permit(:name, :skill, :garnish, :glass, :history, :ingredient, :method)
-    end
+  private
 
-    def set_classic_cocktail
-        @classic_cocktail = ClassicCocktail.find(params[:id])
-    end
+  def classic_cocktail_params
+    params.require(:classic_cocktail).permit(:name, :skill, :garnish, :glass, :history, :ingredient, :method)
+  end
 
+  def set_classic_cocktail
+    @classic_cocktail = ClassicCocktail.find(params[:id])
+  end
 end
