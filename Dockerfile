@@ -63,3 +63,4 @@ CMD ["./bin/rails", "server"]
 
 # Run rails db:seed
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate db:seed
+RUN SECRET_KEY_BASE_DUMMY=1 bundle i
