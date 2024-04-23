@@ -1,5 +1,5 @@
 <div data-controller="navbar" class="relative shadow-lg" >
-  <div class="flex items-center justify-between overflow-auto rounded-t-md bg-neutral-700">
+  <div class="flex items-center justify-between overflow-auto bg-neutral-700">
     <%= link_to root_path, aria: { label: "Home" } do%>
       <%= image_tag "logo.png", alt:"logo image", class:" w-12"%>
     <% end %>
@@ -8,8 +8,8 @@
       <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
     </div>
   </div>
-  <div data-navbar-target="menu" class="fixed top-0 right-0 z-10 w-0 h-screen overflow-hidden transition-all duration-500 bg-neutral-900 ">
-    <div class="absolute bottom-0 w-full mb-4 ">
+  <div data-navbar-target="menu" class="fixed top-0 right-0 z-10 w-0 h-full overflow-hidden transition-all duration-500 lg:top-12 bg-neutral-900 ">
+    <div class="absolute bottom-0 w-full mb-4 lg:top-0 ">
       <% if current_user %>
         <% if current_user.profile.nil?%>
           <%= link_to "建立個人檔案", new_profile_path, class:"my-4  block text-center"%>
@@ -39,6 +39,6 @@
         </div>
       </div>
     </div>
-    <button data-action="click->navbar#closeMenu" class="absolute bottom-0 p-2 right-3 ">X</button>
+    <button data-action="click->navbar#closeMenu" class="absolute bottom-0 p-2 lg:hidden right-3 ">X</button>
   </div>
 </div>

@@ -11,8 +11,11 @@ export default class extends Controller {
 
     // 使用 contains 而不是 include，並修正 if 條件語句的錯誤
     if (menu.classList.contains("w-0")) {
-      menu.classList.add("w-96");
+      menu.classList.add("w-full","md:w-96");
       menu.classList.remove("w-0");
+    }else{
+      menu.classList.remove("w-full","md:w-96");
+      menu.classList.add("w-0");
     }
   }
 
@@ -20,6 +23,6 @@ export default class extends Controller {
     const menu = this.menuTarget;
 
     menu.classList.add("w-0");
-    menu.classList.remove("w-96");
+    menu.classList.remove("w-full","md:w-96");
   }
 }
