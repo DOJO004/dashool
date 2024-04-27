@@ -27,19 +27,30 @@
   </div>
   <div>
     <div>
+      <%# 用戶創意調酒 %>
       <h3>熱門酒譜</h3>
       <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
         <% @cocktails.each do |cocktail|%>
           <%= link_to cocktail_path(cocktail.id) do %>
             <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
-              <p><%= cocktail.user.full_name %></p>
-              <p><%= cocktail.name%></p>
+              <%= image_tag cocktail.images.first.variant(resize_to_limit: [500, 500]), class:"w-full mx-auto rounded-sm" if cocktail.images.attached?%>
+              <div class="mt-4">
+                <p><%= cocktail.user.full_name %></p>
+                <div class="flex items-center justify-between">
+                  <h4 class="font-bold"><%= cocktail.name%></h4>
+                  <div class="flex items-center gap-2">
+                    <%= image_tag "heart.png", class:"w-4 md:w-6 "%>
+                    <p><%= cocktail.likes.count%> </p>
+                  </div>
+                </div>
+              </div>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
     <div>
+      <%# 官方經典調酒 %>
       <h3>經典調酒</h3>
       <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
         <% @classic_cocktails.each do |classic_cocktail|%>

@@ -9,7 +9,9 @@ class CocktailsController < ApplicationController
     @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(6)
   end
 
-  def show; end
+  def show
+    @likes = @cocktail.likes.count
+  end
 
   def new
     @cocktail = Cocktail.new

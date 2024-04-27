@@ -1,11 +1,13 @@
 <div class="relative show_cocktail">
   <div>
-    <%= link_to :back, class:"absolute top-0 left-0 -translate-y-8 invert" do%>
-      <%= image_tag "arrow_back_icon.png"%>
-    <% end %>
-    <% if current_user && current_user.cocktails.find_by(id: @cocktail.id) %>
-      <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"absolute right-0 top-0 -translate-y-8 text-blue-500" %>
-    <% end %>
+    <div class="flex items-center justify-between ">
+      <%= link_to cocktails_path , class:"invert" do%>
+        <%= image_tag "arrow_back_icon.png"%>
+      <% end %>
+      <% if current_user && current_user.cocktails.find_by(id: @cocktail.id) %>
+        <%= link_to "edit", edit_cocktail_path(@cocktail.id), class:"text-blue-500" %>
+      <% end %>
+    </div>
     <% if @cocktail.images.attached? %>
       <div class=" swiper mySwiper" data-controller="swiper">
         <div class="swiper-wrapper">
@@ -23,9 +25,12 @@
     <% end %>
   </div>
   <div class="lg:mx-4">
-    <div class="flex items-end justify-between my-4">
+    <div class="flex items-center justify-between my-4">
       <h2 class="font-bold "><%= @cocktail.name %> </h2>
-      <p>00 ♥</p>
+      <%= link_to add_like_path(@cocktail.id), data: {turbo_method: :post}, class:"flex gap-2 items-center" do %>
+        <%= @likes%>
+        <%= image_tag "heart.png", class:"w-6 md:w-8 lg:w-10 hover:scale-110"%>
+      <% end %>
     </div>
     <p class="my-4">
       <span class="font-bold ">Base :</span>
