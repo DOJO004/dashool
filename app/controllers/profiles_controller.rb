@@ -2,7 +2,10 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
   before_action :check_profile, only: %i[new]
 
-  def show; end
+  def show
+    user = User.find(@profile.user_id)
+    @cocktails = Cocktail.where(user_id: user.id)
+  end
 
   def new
     @profile = Profile.new
@@ -34,7 +37,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :phone, :address, :descript)
+    params.require(:profile).permit(:name, :phone, :address, :descript, :avatar)
   end
 
   def set_profile

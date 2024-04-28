@@ -1,5 +1,9 @@
 <%= form_with(model: @profile, data: {turbo: false}) do |f|%>
   <div class="my-2">
+    <%= f.label :avatar%>
+    <%= f.file_field :avatar, class:"block"%>
+  </div>
+  <div class="my-2">
     <%= f.label :name%>
     <%= f.text_field :name, class:"w-full rounded-md p-2 text-black "%>
   </div>

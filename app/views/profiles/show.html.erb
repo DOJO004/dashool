@@ -1,21 +1,48 @@
 <div>
-  <h2>
-    <%= @profile.name%>
-    <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) if current_user.profile.name === @profile.name %>
-  </h2>
-  <p>
-    所在地:
-    <%= @profile.address%>
-  </p>
-  <p>
-    簡介: 
-    <% if @profile.descript.gsub!("\r\n", "<br>").nil? %>
-      <%= @profile.descript%>
-    <% else %>
-      <%= @profile.descript.gsub!("\r\n", "<br>").html_safe%>
-    <% end %>
-  </p>
-  <div>
-    作品區
+  <div class="flex gap-2">
+    <div class="w-1/2 ">
+      <% if @profile.avatar.attached? %>
+        <%= image_tag @profile.avatar.variant(resize_to_limit: [1920, 1080]), class:"rounded-full w-32 h-32"%>
+      <% else %>
+        <div class="w-32 h-32 bg-gray-500 rounded-full"></div>
+      <% end %>
+    </div>
+    <div class="w-1/2 ">
+      <h1>
+        <%= @profile.name%>
+        <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class:"text-blue-500" if current_user.profile.name === @profile.name %>
+      </h1>
+      <p>
+        <%= @profile.address%>
+      </p>
+      <p class="overflow-auto max-h-32">
+        <% if @profile.descript.gsub!("\r\n", "<br>").nil? %>
+          <%= @profile.descript%>
+        <% else %>
+          <%= @profile.descript.gsub!("\r\n", "<br>").html_safe %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="mt-4">
+    <h2>作品區</h2>
+    <div class="grid grid-cols-3 gap-2">
+      <% @cocktails.each do |cocktail|%>
+        <%= link_to cocktail_path(cocktail.id) do %>
+          <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
+            <%= image_tag cocktail.images.first.variant(resize_to_fill: [500, 500]), class:"w-full  mx-auto rounded-sm" if cocktail.images.attached?%>
+            <div class="mt-4">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold"><%= cocktail.name%></h4>
+                <div class="flex items-center gap-2">
+                  <%= image_tag "heart.png", class:"w-4 md:w-6 "%>
+                  <p><%= cocktail.likes.count%> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
