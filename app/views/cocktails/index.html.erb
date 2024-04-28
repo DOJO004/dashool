@@ -1,6 +1,6 @@
 <div class="w-full ">
   <div>
-    <h1 class="my-4 text-center "><%= t("root.title")%></h1>
+    <h1 class="my-4 text-center ">Tipsy Dog</h1>
     <div class="my-4 text-center">
       <h2 >
         全台最大調酒知識庫
@@ -17,13 +17,13 @@
     <% end %>
   </div>
   <div class="flex justify-center gap-4 my-4">
+    <%= link_to "+ 新增自己的酒譜", new_cocktail_path, class:"p-2 border  border-gray-500 rounded-md hover:border-white w-fit"%>
     <% if current_user.nil? %>
       <%= link_to new_user_registration_path, class:"flex gap-2 items-center bg-amber-900 rounded-md p-2 hover:bg-amber-800" do%>
         <%= image_tag "user.png", alt:"registration icon", class:"w-4"%>
         <p>註冊會員</p>
       <% end %>
     <% end %>
-    <%= link_to "+ 新增自己的酒譜", new_cocktail_path, class:"p-2 border  border-gray-500 rounded-md hover:border-white w-fit"%>
   </div>
   <div>
     <div>
@@ -33,7 +33,7 @@
         <% @cocktails.each do |cocktail|%>
           <%= link_to cocktail_path(cocktail.id) do %>
             <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
-              <%= image_tag cocktail.images.first.variant(resize_to_limit: [500, 500]), class:"w-full mx-auto rounded-sm" if cocktail.images.attached?%>
+              <%= image_tag cocktail.images.first.variant(resize_to_fill: [500, 500]), class:"w-full  mx-auto rounded-sm" if cocktail.images.attached?%>
               <div class="mt-4">
                 <p><%= cocktail.user.full_name %></p>
                 <div class="flex items-center justify-between">

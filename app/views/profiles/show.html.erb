@@ -9,8 +9,11 @@
   </p>
   <p>
     簡介: 
-    <%= @profile.descript.gsub!("\r\n", "<br>").html_safe
-%>
+    <% if @profile.descript.gsub!("\r\n", "<br>").nil? %>
+      <%= @profile.descript%>
+    <% else %>
+      <%= @profile.descript.gsub!("\r\n", "<br>").html_safe%>
+    <% end %>
   </p>
   <div>
     作品區

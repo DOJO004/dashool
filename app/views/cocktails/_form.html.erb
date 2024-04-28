@@ -1,8 +1,8 @@
 <div data-controller="preview-img">
   <%= form_with(model: @cocktail, data:{ turbo: false }) do |f|%>
     <%= f.label :images %>
-    <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" } %>
-    <div id="image-preview" class="flex gap-2"></div>
+    <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" }, accept: 'image/png,image/jpeg' %>
+    <div id="image-preview" class="flex items-center gap-2"></div>
     <%= f.label :introduce %>
     <%= f.rich_text_area  :introduce, placeholder: "撰寫說明 / 製作方法" %>
     <%= f.label :name %>
