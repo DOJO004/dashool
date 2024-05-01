@@ -23,7 +23,8 @@
         <%= link_to t("navbar.login"), new_user_session_path, class:"my-4   text-center block " %>
       <% end %>
       <hr class="my-4">
-      <%= link_to "所有酒譜", search_path, class:"my-4 mt-4 text-center block"%>
+      <%= link_to "創意調酒", search_path, class:"my-4 mt-4 text-center block"%>
+      <%= link_to "經典調酒", classic_cocktails_path, class:"my-4 mt-4 text-center block"%>
       <p class="my-4 text-center ">調酒知識</p>
       <p class="my-4 text-center "><%= t("navbar.about_dashool")%></p>
       <p class="my-4 text-center "><%= link_to t("navbar.cocktail_map"), cocktail_map_path%></p>

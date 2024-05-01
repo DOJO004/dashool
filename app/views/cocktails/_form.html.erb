@@ -1,16 +1,26 @@
 <div data-controller="preview-img">
   <%= form_with(model: @cocktail, data:{ turbo: false }) do |f|%>
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" }, accept: 'image/png,image/jpeg' %>
-    <div id="image-preview" class="flex items-center gap-2"></div>
-    <%= f.label :introduce %>
-    <%= f.rich_text_area  :introduce, placeholder: "撰寫說明 / 製作方法" %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "w-full rounded-md text-black" %>
-    <%= f.label :base_wine %>
-    <%= f.select :base_wine, [["Whisky","Whisky"], ["Gin", "Gin"], ["Tequila", "Tequila"], ["Vodka", "Vodka"], ["Rum", "Rum"], ["Brandy", "Brandy"]], {}, { class: "w-full rounded-md text-black" } %>
-    <%= f.label :skill %>
-    <%= f.select :skill, [["Build", "Build"], ["Stir", "Stir"], ["Shake", "Shake"]], {}, { class: "w-full rounded-md text-black" } %>
+    <div class="my-2 ">
+      <%= f.label :images, "相片" %>
+      <%= f.file_field :images, multiple: true, id: "image-input", class: "w-full rounded-md", data: { target: "preview-img.input" }, accept: 'image/png,image/jpeg' %>
+      <div id="image-preview" class="flex items-center gap-2"></div>
+    </div>
+    <div class="my-2 ">
+      <%= f.label :introduce, "介紹" %>
+      <%= f.rich_text_area  :introduce, placeholder: "撰寫說明 / 製作方法" %>
+    </div>
+    <div class="my-2 ">
+      <%= f.label :name, "名稱" %>
+      <%= f.text_field :name, class: "w-full rounded-md text-black" %>
+    </div>
+    <div class="my-2 ">
+      <%= f.label :base_wine, "基酒" %>
+      <%= f.select :base_wine, [["Whisky","Whisky"], ["Gin", "Gin"], ["Tequila", "Tequila"], ["Vodka", "Vodka"], ["Rum", "Rum"], ["Brandy", "Brandy"]], {}, { class: "w-full rounded-md text-black" } %>
+    </div>
+    <div class="my-2 ">
+      <%= f.label :skill, "手法" %>
+      <%= f.select :skill, [["Build", "Build"], ["Stir", "Stir"], ["Shake", "Shake"]], {}, { class: "w-full rounded-md text-black" } %>
+    </div>
     <div class="p-1 my-4 text-center bg-gray-500 rounded-md">
       <%= f.submit "submit", class: "w-full" %>
     </div>

@@ -1,7 +1,10 @@
 class ClassicCocktailsController < ApplicationController
   before_action :set_classic_cocktail, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    @q = ClassicCocktail.ransack(params[:q])
+    @classic_cocktails = @q.result.order(name: :asc)
+  end
 
   def show; end
 
