@@ -6,7 +6,8 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show edit update destroy]
 
   def index
-   
+    @q = Cocktail.ransack(params[:q])
+    @cocktials = @q.result
   end
 
   def show
