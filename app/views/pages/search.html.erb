@@ -16,7 +16,10 @@
     <% end %>
     <% @data.each do |data|%>
       <%= link_to data, class:"block my-2 border p-2 rounded-md" do%>
-        <%= data.name%>
+        <div>
+          <%= image_tag data.images.first if !data.images.nil? && data.images.attached?%>
+          <%= data.name%>
+        </div>
       <% end %>
     <% end %>
   </div>

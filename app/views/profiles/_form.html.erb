@@ -1,23 +1,23 @@
 <%= form_with(model: @profile, data: {turbo: false}) do |f|%>
   <div class="my-2">
-    <%= f.label :avatar%>
+    <%= f.label :avatar, "大頭貼"%>
     <%= f.file_field :avatar, class:"block"%>
   </div>
   <div class="my-2">
-    <%= f.label :name%>
-    <%= f.text_field :name, class:"w-full rounded-md p-2 text-black "%>
+    <%= f.label :name, "暱稱"%>
+    <%= f.text_field :name, class:"w-full rounded-md p-2 text-black", placeholder: "ex: DOJO"%>
   </div>
   <div class="my-2">
-    <%= f.label :phone%>
-    <%= f.text_field :phone,type: "tel", class:"w-full rounded-md p-2 text-black "%>
+    <%= f.label :phone, "電話"%>
+    <%= f.text_field :phone,type: "tel", class:"w-full rounded-md p-2 text-black", placeholder:"0900123123"%>
   </div>
   <div class="my-2">
-    <%= f.label :address%>
-    <%= f.text_field :address, class:"w-full rounded-md p-2 text-black "%>
+    <%= f.label :address, "所在地"%>
+    <%= f.select :address, options_for_select(@profile.address_info, selected: @profile.address), {},{ class: "w-full rounded-md p-2 text-black" } %>
   </div>
   <div class="my-2">
-    <%= f.label :descript%>
-    <%= f.text_area :descript, rows: 15,  class:"w-full rounded-md p-2 text-black "%>
+    <%= f.label :descript, "簡介"%>
+    <%= f.text_area :descript, rows: 15,  class:"w-full rounded-md p-2 text-black ", placeholder:"簡單的自我介紹，讓大家認識你吧!"%>
   </div>
   <%= f.submit "submit", class:"w-full rounded-md bg-amber-800 p-2 cursor-pointer hover:bg-amber-900"%>
 <% end %>

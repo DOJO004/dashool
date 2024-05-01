@@ -10,22 +10,21 @@
     <div class="w-1/2 ">
       <h1>
         <%= @profile.name%>
-        <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class:"text-blue-500" if current_user.profile.name === @profile.name %>
+        <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class:"text-blue-500" if current_user && current_user.id === @profile.user_id %>
       </h1>
       <p>
         <%= @profile.address%>
       </p>
       <p class="overflow-auto max-h-32">
-        <% if @profile.descript.gsub!("\r\n", "<br>").nil? %>
-          <%= @profile.descript%>
-        <% else %>
-          <%= @profile.descript.gsub!("\r\n", "<br>").html_safe %>
-        <% end %>
+        <%= @profile.descript.gsub("\r\n", "<br>").html_safe %>
       </p>
     </div>
   </div>
   <div class="mt-4">
-    <h2>作品區</h2>
+    <% if @cocktails.length == 0%>
+      <p class="text-center text-gray-400">尚未擁有調酒</p>
+      <%= link_to "新增調酒", new_cocktail_path, class:"p-2 rounded-md bg-amber-900 mx-auto block w-fit my-4" if current_user && current_user.id === @profile.user_id%>
+    <% end %>
     <div class="grid grid-cols-3 gap-2">
       <% @cocktails.each do |cocktail|%>
         <%= link_to cocktail_path(cocktail.id) do %>
