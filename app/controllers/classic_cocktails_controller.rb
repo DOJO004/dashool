@@ -21,7 +21,7 @@ class ClassicCocktailsController < ApplicationController
   private
 
   def classic_cocktail_params
-    params.require(:classic_cocktail).permit(:name, :skill, :garnish, :glass, :history, :ingredient, :method)
+    params.require(:classic_cocktail).permit(:name, :skill, :garnish, :glass, :history, :ingredient, :method, :image)
   end
 
   def set_classic_cocktail

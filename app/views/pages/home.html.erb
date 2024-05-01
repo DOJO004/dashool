@@ -41,13 +41,21 @@
     </div>
     <div>
       <%# 官方經典調酒 %>
-      <h3>經典調酒</h3>
-      <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+      <div class="flex items-end gap-4">
+        <h3>經典調酒</h3>
+        <%= link_to "所有經典調酒", classic_cocktails_path, class:"border border-gray-400 text-gray-400 rounded-md p-1 hover:text-white"%>
+      </div>
+      <div class="flex gap-2 overflow-auto">
         <% @classic_cocktails.each do |classic_cocktail|%>
           <%= link_to classic_cocktail_path(classic_cocktail.id) do %>
-            <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
-              <h4><%= classic_cocktail.name%></h4>
-              <p class="p-1 text-gray-500 border border-gray-500 rounded-md w-fit "><%= classic_cocktail.base_wine%></p>
+            <div class="p-2 my-2 border w-[200px] border-gray-400 rounded-md hover:border-white">
+              <% if classic_cocktail.image.attached? %>
+                <%= image_tag classic_cocktail%>
+              <% else %>
+                <%= image_tag "https://fakeimg.pl/1920x1080/"%>
+              <% end %>
+              <h4 class="mb-2 truncate "><%= classic_cocktail.name%></h4>
+              <p class="inline p-1 text-gray-500 truncate border border-gray-500 rounded-md "><%= classic_cocktail.base_wine%></p>
             </div>
           <% end %>
         <% end %>
