@@ -6,8 +6,7 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show edit update destroy]
 
   def index
-    @cocktails = Cocktail.order("RANDOM()").limit(6)
-    @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(6)
+   
   end
 
   def show

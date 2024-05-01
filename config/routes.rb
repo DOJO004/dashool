@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "cocktails#index"
+  root "pages#home"
 
   devise_for :users, controllers: {
                        registrations: "users/registrations",
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   get "setting", to: "users#setting"
   get "cocktail_map", to: "pages#cocktail_map"
-  get "search", to: "pages#search", as: "search"
 
   ## add like
   post "add_like/:cocktail_id", to: "likes#add_like", as: "add_like"
