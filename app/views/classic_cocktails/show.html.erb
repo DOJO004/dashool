@@ -6,8 +6,20 @@
     <h2>
       <%= @classic_cocktail.name%>
     </h2>
-    <div class="my-4">
-      <%= image_tag "https://fakeimg.pl/1920x1080/", alt:"#{@classic_cocktail.name} image", class:"w-full rounded-md mx-auto md:w-10/12 lg:w-8/12 xl:w-6/12"%>
+    <%= link_to "編輯", edit_classic_cocktail_path(@classic_cocktail.id), class:"text-blue-500" if current_user && current_user.role === "admin"%>
+    <div class="my-4" data-controller="upload-image">
+      <div data-action="click->upload-image#selectImage">
+        <% if @classic_cocktail.image.attached?%>
+          <%= image_tag @classic_cocktail.image%>
+        <% else %>
+          <%= image_tag "https://fakeimg.pl/1920x1080/", alt:"#{@classic_cocktail.name} image", class:"w-full rounded-md mx-auto md:w-10/12 lg:w-8/12 xl:w-6/12"%>
+        <% end %>
+      </div>
+      <% if current_user && current_user.role === "admin" %>
+        <%= form_with(model: @classic_cocktail, class:"hidden", data: {turbo: false, turbo_method: :patch, upload_image_target: "form"}) do |f| %>
+          <%= f.file_field :image, data: { upload_image_target: "input", action: "change->upload-image#uploadImage"} %>
+        <% end %>
+      <% end %>
     </div>
     <div class="my-4">
       <h3>History:</h3>

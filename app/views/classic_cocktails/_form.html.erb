@@ -1,17 +1,39 @@
 <%= form_with(model: @classic_cocktail) do |f|%>
-  <%= f.label :name%>
-  <%= f.text_field :name, class:"block w-full rounded-md p-2 text-black"%>
-  <%= f.label :history%>
-  <%= f.text_area :history, class:"block w-full rounded-md p-2 text-black"%>
-  <%= f.label :skill%>
-  <%= f.select :skill, [["build", "build"], ["stir", "stir"], ["shake", "shake"]], {}, class: "block w-full rounded-md p-2 text-black" %>
-  <%= f.label :garnish%>
-  <%= f.text_field :garnish, class:"block w-full rounded-md p-2 text-black"%>
-  <%= f.label :glass%>
-  <%= f.select :glass, [["Martini", "Martini"], ["Old Fashioned", "Old Fashioned"], ["Highball", "Highball"], ["Shot", "Shot"], ["Margarita", "Margarita"], ["Wine", "Wine"], ["Champagne", "Champagne"]], {}, class:"block w-full rounded-md p-2 text-black"%>
-  <%= f.label :ingredient%>
-  <%= f.text_field :ingredient, class:"block w-full rounded-md p-2 text-black"%>
-  <%= f.label :method%>
-  <%= f.text_area :name, class:"block w-full rounded-md p-2 text-black"%>
+  <div class="mt-4 ">
+    <%= f.label :image, "相片"%>
+    <%= f.file_field :image, class:"block"%>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :name, "名稱"%>
+    <%= f.text_field :name, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :history, "起源"%>
+    <%= f.text_area :history, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :skill, "手法"%>
+    <%= f.select :skill, [["build", "build"], ["stir", "stir"], ["shake", "shake"]], {}, class: "block w-full rounded-md p-2 text-black" %>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :garnish, "裝飾"%>
+    <%= f.text_field :garnish, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 " >
+    <%= f.label :glass, "杯型"%>
+    <%= f.select :glass, [["Martini", "Martini"], ["Old Fashioned", "Old Fashioned"], ["Highball", "Highball"], ["Shot", "Shot"], ["Margarita", "Margarita"], ["Wine", "Wine"], ["Champagne", "Champagne"]], {}, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 " >
+    <%= f.label :base_wine, "基酒"%>
+    <%= f.text_field :base_wine, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :ingredient, "材料"%>
+    <%= f.text_field :ingredient, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
+  <div class="mt-4 ">
+    <%= f.label :method, "作法"%>
+    <%= f.text_area :name, class:"block w-full rounded-md p-2 text-black"%>
+  </div>
   <%= f.submit "新增", class:"w-full p-2 bg-amber-900 my-4 cursor-pointer hover:bg-amber-800"%>
 <% end %> 

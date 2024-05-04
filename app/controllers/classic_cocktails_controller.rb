@@ -12,9 +12,17 @@ class ClassicCocktailsController < ApplicationController
 
   def create; end
 
-  def edit; end
+  def edit
+  end
 
-  def update; end
+  def update
+    if @classic_cocktail.update(classic_cocktail_params)
+      redirect_to @classic_cocktail, notice: "Classic cocktail was successfully updated."
+    else
+      flash.now[:alert] = @classic_cocktail.errors.full_messages
+      render :edit
+    end
+  end
 
   def destroy; end
 

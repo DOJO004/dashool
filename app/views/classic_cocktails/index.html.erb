@@ -1,11 +1,14 @@
 <div>
   <h1>經典調酒</h1>
   <div class="my-4">
-    <%= search_form_for @q, class:"flex gap-2 items-center" do |f|%>
+    <%= search_form_for @q, class:"flex gap-2 items-end" do |f|%>
+      <div>
+        <%= f.label :base_wine_cont, "選擇基酒"%>
+        <%= f.select :base_wine_cont, [["Gin", "Gin"], ["Whisky", "Whisky"], ["Vodka", "Vodka"], ["Brandy", "Brandy"], ["Tequila", "Tequila"], ["Rum", "Rum"]]  ,{}, class:"w-full rounded-md p-2 text-black"%>
+      </div>
       <%= f.search_field :name_cont, placeholder:"搜尋名稱", class:"w-full rounded-md p-2 text-black"%>
-      <%= f.search_field :base_wine_cont, placeholder:"搜尋基酒", class:"w-full rounded-md p-2 text-black"%>
       <button>
-        <%= image_tag "search.png", class:"w-12 md:w-16 lg:w-20"%>
+        <%= image_tag "search.png", class:"w-12 md:w-14 lg:w-16"%>
       </button>
     <% end %>
   </div>
