@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["menu"];
+  static targets = ["menu", "settings"];
 
   connect() {}
 
@@ -24,5 +24,16 @@ export default class extends Controller {
 
     menu.classList.add("w-0");
     menu.classList.remove("w-full","md:w-96");
+  }
+
+  showSettings() {
+    const settings = this.settingsTarget;
+
+    if (settings.classList.contains("h-0")) {
+      settings.classList.remove("h-0");
+      settings.classList.add("h-full");
+    }else{
+      settings.classList.add("h-0");
+      settings.classList.remove("h-full");}
   }
 }

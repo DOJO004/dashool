@@ -1,4 +1,8 @@
 <div>
+  <%# edit_profile %>
+  <div class="flex justify-center ">
+    <%= link_to "編輯個人資料", edit_profile_path(current_user.profile.id) , class:"p-1 my-2 text-gray-500 border border-gray-500 rounded-md hover:border-white hover:text-white w-fit  block" if current_user && current_user.id === @profile.user_id %>
+  </div>
   <div class="flex gap-2">
     <div class="w-1/2" data-controller="upload-image">
       <div data-action="click->upload-image#selectImage">
@@ -13,7 +17,7 @@
         <% end %>
       </div>
       <%# upload_image %>
-      <% if current_user.id === @profile.user_id %>
+      <% if current_user && current_user.id === @profile.user_id %>
         <%= form_with(model: @profile, data: {turbo: false, turbo_method: :patch, upload_image_target: "form"}, class:"hidden") do |f|%>
           <%= f.file_field :avatar, data:{ upload_image_target: "input", action: "change->upload-image#uploadImage"}%>
         <% end %>
@@ -22,7 +26,6 @@
     <div class="w-1/2 ">
       <h1>
         <%= @profile.name%>
-        <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class:"text-blue-500" if current_user && current_user.id === @profile.user_id %>
       </h1>
       <p class="overflow-auto max-h-32">
         <%= @profile.descript %>

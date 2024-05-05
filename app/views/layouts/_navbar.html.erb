@@ -12,7 +12,22 @@
     <div class="absolute top-0 w-full mb-4 whitespace-nowrap ">
       <% if current_user %>
         <%= link_to "個人檔案", profile_path(current_user.profile.id), class:"my-4  block text-center" %>
-        <%= link_to t("navbar.setting"), setting_path, class:"my-4  block text-center"%>
+        <div class="my-4 ">
+          <p class="text-center" data-action="click->navbar#showSettings">設定</p>
+          <div data-navbar-target="settings" class="h-0 overflow-hidden transition-all duration-300 ease-in-out bg-neutral-800">
+            <div data-controller="show-language" class="w-full max-w-3xl mx-auto my-4 cursor-pointer">
+              <p data-action="click->show-language#show" class="w-full text-center">
+                <%= t("setting.language") %>
+              </p>
+              <div data-show-language-target="language" class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="py-2 mt-2 rounded-md bg-neutral-700">
+                  <%= link_to "中文", { locale: "tw" }, class: "w-full block mt-2 text-center " %>
+                  <%= link_to "English", { locale: "en" }, class: "w-full block mt-2 text-center " %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <%= button_to t("navbar.logout"), destroy_user_session_path, data:{ turbo: false }, method: :delete, class:" w-full "%>
       <% else %>
         <%= link_to "註冊會員", new_user_registration_path, class:"my-4   text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
@@ -23,18 +38,6 @@
       <%= link_to "經典調酒", classic_cocktails_path, class:"my-4 mt-4 text-center block"%>
       <p class="my-4 text-center ">調酒知識</p>
       <p class="my-4 text-center "><%= t("navbar.about_dashool")%></p>
-      <p class="my-4 text-center "><%= link_to t("navbar.cocktail_map"), cocktail_map_path%></p>
-      <div data-controller="show-language" class="w-full max-w-3xl mx-auto my-4 cursor-pointer">
-        <p data-action="click->show-language#show" class="w-full text-center">
-          <%= t("setting.language") %>
-        </p>
-        <div data-show-language-target="language" class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
-          <div class="p-2 rounded-md bg-neutral-700">
-            <%= link_to "中文", { locale: "tw" }, class: "w-full block my-4 text-center " %>
-            <%= link_to "English", { locale: "en" }, class: "w-full block my-4 text-center " %>
-          </div>
-        </div>
-      </div>
     </div>
     <button data-action="click->navbar#closeMenu" class="absolute top-0 p-2 right-3 ">X</button>
   </div>
