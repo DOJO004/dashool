@@ -1,10 +1,22 @@
 <div>
   <div class="flex gap-2">
-    <div class="w-1/2 ">
-      <% if @profile.avatar.attached? %>
-        <%= image_tag @profile.avatar.variant(resize_to_limit: [1920, 1080]), class:"rounded-full w-32 h-32"%>
-      <% else %>
-        <div class="w-32 h-32 bg-gray-500 rounded-full"></div>
+    <div class="w-1/2" data-controller="upload-image">
+      <div data-action="click->upload-image#selectImage">
+        <% if @profile.avatar.attached? %>
+          <div class="flex items-center justify-center mx-auto rounded-full">
+            <%= image_tag @profile.avatar.variant(resize_to_limit: [1920, 1080]), class:"w-24 rounded-full"%>
+          </div>
+        <% else %>
+          <div class="flex items-center justify-center mx-auto bg-white rounded-full">
+            <%= image_tag "upload_image.png", class:" w-24"%>
+          </div>
+        <% end %>
+      </div>
+      <%# upload_image %>
+      <% if current_user.id === @profile.user_id %>
+        <%= form_with(model: @profile, data: {turbo: false, turbo_method: :patch, upload_image_target: "form"}, class:"hidden") do |f|%>
+          <%= f.file_field :avatar, data:{ upload_image_target: "input", action: "change->upload-image#uploadImage"}%>
+        <% end %>
       <% end %>
     </div>
     <div class="w-1/2 ">
@@ -12,11 +24,8 @@
         <%= @profile.name%>
         <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class:"text-blue-500" if current_user && current_user.id === @profile.user_id %>
       </h1>
-      <p>
-        <%= @profile.address%>
-      </p>
       <p class="overflow-auto max-h-32">
-        <%= @profile.descript.gsub("\r\n", "<br>").html_safe %>
+        <%= @profile.descript %>
       </p>
     </div>
   </div>

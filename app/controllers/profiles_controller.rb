@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
-  before_action :check_profile, only: %i[new]
 
   def show
     user = User.find(@profile.user_id)
@@ -42,11 +41,5 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
-  end
-
-  def check_profile
-    if current_user.profile.present?
-      redirect_to current_user.profile
-    end
   end
 end

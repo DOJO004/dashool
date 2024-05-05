@@ -1,9 +1,6 @@
 <%= form_with(model: @profile, data: {turbo: false}) do |f|%>
-  <div class="my-2">
-    <%= f.label :avatar, "大頭貼"%>
-    <%= f.file_field :avatar, class:"block"%>
-  </div>
-  <div class="my-2">
+  <div class="relative my-2">
+    <span class="absolute top-0 inline-flex w-2 h-2 bg-red-400 rounded-full opacity-75 left-8"></span>
     <%= f.label :name, "暱稱"%>
     <%= f.text_field :name, class:"w-full rounded-md p-2 text-black", placeholder: "ex: DOJO"%>
   </div>
