@@ -1,22 +1,23 @@
 class LikesController < ApplicationController
     before_action :authenticate_user!
 
-    def get_likes_count
+    def show
         cocktail = Cocktail.find(params[:cocktail_id])
         likes_count = cocktail.likes.count
-        render json: { likes_count: likes_count }
+        liked = cocktail.likes.exists?(user_id: current_user.id)
+        render json: { 
+            likes_count: likes_count, 
+            current_user_liked: liked
+        }
     end
-    
+
     def create
         @like = Like.new(user_id: current_user.id, cocktail_id: params[:cocktail_id])
         if @like.save
-            respond_to do |format|
-                format.turbo_stream { render turbo_stream: turbo_stream.update(@like) }
-                format.html         { redirect_to cocktails_path(params[:cocktail_id]) }
-              end
         else
             destroy
         end
+        show()
     end
 
     def destroy
