@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get "setting", to: "users#setting"
   get "cocktail_map", to: "pages#cocktail_map"
 
-  ## add like
-  post "add_like/:cocktail_id", to: "likes#add_like", as: "add_like"
+  ## like
+  get "likes/:cocktail_id", to: "likes#get_likes_count"
+  post "add_like/:cocktail_id", to: "likes#create", as: "add_like"
   post "/get_user_location", to: "pages#get_user_location"
 end
