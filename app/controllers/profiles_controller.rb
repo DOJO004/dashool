@@ -2,8 +2,8 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
 
   def show
-    user = User.find(@profile.user_id)
-    @cocktails = Cocktail.where(user_id: user.id)
+    @user = User.find(@profile.user_id)
+    @cocktails = Cocktail.where(user_id: @user.id)
   end
 
   def new

@@ -1,5 +1,5 @@
 <div data-controller="navbar" class="relative shadow-lg" >
-  <div class="flex items-center justify-between p-2 overflow-auto bg-neutral-700">
+  <div class="flex items-center justify-between p-2 overflow-hidden bg-neutral-700">
     <%= link_to root_path, aria: { label: "Home" } do%>
       <h1>Dashool</h1>
     <% end %>
@@ -8,7 +8,7 @@
       <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
     </div>
   </div>
-  <div data-navbar-target="menu" class="fixed top-0 right-0 z-50 w-0 h-full overflow-hidden transition-all duration-500 lg:top-12 bg-neutral-900 ">
+  <div data-navbar-target="menu" class="fixed top-0 right-0 w-0 h-full overflow-hidden transition-all duration-500 lg:top-12 bg-neutral-900 ">
     <div class="absolute top-0 w-full mb-4 whitespace-nowrap ">
       <% if current_user %>
         <%= link_to "個人檔案", profile_path(current_user.profile.id), class:"my-4  block text-center" %>
