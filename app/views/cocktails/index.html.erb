@@ -10,10 +10,18 @@
     <% if @cocktials.length === 0 %>
       <h2 class="text-center "> oops! 未找到相關資料 </h2>
     <% end %>
-    <% @cocktials.each do |cocktail|%>
-      <%= link_to cocktail_path(cocktail.id) do%>
-        <%= cocktail.name%>
+    <div class="grid grid-cols-3 ">
+      <% @cocktials.each do |cocktail|%>
+        <%= link_to cocktail_path(cocktail.id) do%>
+          <div class="overflow-hidden border-2 rounded border-neutral-800">
+            <div>
+              <%= image_tag cocktail.images.first.variant(resize_to_fill:[500, 500])%>
+              <p class="mx-1 text-md md:text-2xl "><%= cocktail.name%> </p>
+            </div>
+            <p class="mx-1 text-sm text-gray-400 md:text-lg"><%= cocktail.user.profile.name%> </p>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

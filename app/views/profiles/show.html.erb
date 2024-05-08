@@ -1,18 +1,18 @@
 <div>
   <%# edit_profile %>
-  <div class="flex justify-center ">
-    <%= link_to "編輯個人資料", edit_profile_path(current_user.profile.id) , class:"p-1 my-2 text-gray-500 border border-gray-500 rounded-md hover:border-white hover:text-white w-fit  block" if current_user && current_user.id === @profile.user_id %>
-  </div>
-  <div class="flex gap-2">
-    <div class="w-1/2" data-controller="upload-image">
+  <% if  current_user && current_user.id === @profile.user_id  %>
+    <%= link_to "編輯個人資料", edit_profile_path(current_user.profile.id) , class:"p-1 mx-auto my-2 text-gray-500 border border-gray-500 rounded-md hover:border-white hover:text-white w-fit  block" %>
+  <% end %>
+  <div class="grid items-center grid-cols-12">
+    <div class="col-span-3" data-controller="upload-image">
       <div data-action="click->upload-image#selectImage">
         <% if @profile.avatar.attached? %>
-          <div class="flex items-center justify-center mx-auto rounded-full">
-            <%= image_tag @profile.avatar.variant(resize_to_limit: [1920, 1080]), class:"w-24 rounded-full"%>
+          <div class="flex items-center justify-center mx-auto rounded-full w-fit">
+            <%= image_tag @profile.avatar.variant(resize_to_limit: [500, 500]), class:"w-24 rounded-full"%>
           </div>
         <% else %>
-          <div class="flex items-center justify-center mx-auto bg-white rounded-full">
-            <%= image_tag "upload_image.png", class:" w-24"%>
+          <div class="flex items-center w-16 h-16 mx-auto bg-white rounded-full md:w-24 lg:w-32 md:h-24 lg:h-32">
+            <%= render "icons/upload_photo_icon"%>
           </div>
         <% end %>
       </div>
@@ -23,14 +23,29 @@
         <% end %>
       <% end %>
     </div>
-    <div class="w-1/2 ">
+    <div class="col-span-9 ml-4 ">
       <h1>
         <%= @profile.name%>
       </h1>
+    </div>
+    <div class="col-span-12 ">
       <p class="overflow-auto max-h-32">
         <%= @profile.descript %>
       </p>
     </div>
+  </div>
+  <div class="grid grid-cols-12 gap-2 mt-4">
+    <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
+      <%= render "icons/cocktail_count_icon"%>
+      <p>調酒 <%= @cocktails.count%></p>
+    </div>
+    <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
+      <%= render "icons/like_count_icon"%>
+      <p>喜歡 <%= @user.likes.count%> </p>
+    </div>
+    <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
+      <%= render "icons/collection_count_icon"%>
+      收藏</div>
   </div>
   <div class="mt-4">
     <% if @cocktails.length == 0%>
@@ -43,10 +58,10 @@
           <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
             <%= image_tag cocktail.images.first.variant(resize_to_fill: [500, 500]), class:"w-full  mx-auto rounded-sm" if cocktail.images.attached?%>
             <div class="mt-4">
-              <div class="flex items-center justify-between">
-                <h4 class="font-bold"><%= cocktail.name%></h4>
-                <div class="flex items-center gap-2">
-                  <%= image_tag "heart.png", class:"w-4 md:w-6 "%>
+              <div class="">
+                <p class="font-bold"><%= cocktail.name%></p>
+                <div class="flex items-center">
+                  <%= render "icons/like_count_icon"%>
                   <p><%= cocktail.likes.count%> </p>
                 </div>
               </div>

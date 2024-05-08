@@ -1,7 +1,7 @@
 <div class="relative show_cocktail">
   <div>
-    <div class="flex items-center justify-between ">
-      <%= link_to cocktails_path , class:"invert" do%>
+    <div class="relative flex items-center justify-between ">
+      <%= link_to :back , class:"invert absolute -top-7 left-0" do%>
         <%= image_tag "arrow_back_icon.png"%>
       <% end %>
       <% if current_user && current_user.cocktails.find_by(id: @cocktail.id) %>
@@ -31,7 +31,7 @@
       </div>
       <%= link_to add_like_path(@cocktail.id), data: {turbo_method: :post}, class:"flex gap-2 items-center" do %>
         <%= @likes%>
-        <%= image_tag "heart.png", class:"w-6 md:w-8 lg:w-10 hover:scale-110"%>
+        <%= render "icons/like_count_icon"%>
       <% end %>
     </div>
     <p class="my-4">
