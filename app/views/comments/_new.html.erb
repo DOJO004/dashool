@@ -1,0 +1,7 @@
+<%= form_with(model: @comment, class:"flex items-center gap-2") do |f|%>
+  <% if current_user && current_user.profile.avatar.attached? %>
+    <%= image_tag(current_user.profile.avatar, class:"w-8 h-8 rounded-full") %>
+  <% end %>
+  <%= f.text_field :messages, placeholder: "留言回應...", class:"w-full rounded-md bg-neutral-900 " %>
+  <%= f.hidden_field :cocktail_id, value: params[:id] %>
+<% end %>

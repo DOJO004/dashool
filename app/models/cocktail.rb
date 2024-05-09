@@ -2,6 +2,7 @@ class Cocktail < ApplicationRecord
   has_rich_text :introduce
   has_many_attached :images
   has_many :likes
+  has_many :comments
   belongs_to :user
 
   def self.ransackable_attributes(_auth_object = nil)

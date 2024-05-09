@@ -1,0 +1,12 @@
+  <% @comments.map do |comment|%>
+  <div class="flex items-center gap-2 px-2 mt-4 ">
+    <%= image_tag(comment.user.profile.avatar, class:"w-8 h-8 rounded-full")%>
+    <div>
+      <div class="flex gap-2 ">
+        <p class="text-sm"><%= comment.user.profile.name %></p>
+        <p class="text-sm text-gray-400"><%= time_ago_in_words(comment.updated_at) %> </p>
+      </div>
+      <p class="text-lg "><%= comment.messages%></p>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 require "image_processing/mini_magick"
 
+
 class CocktailsController < ApplicationController
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_cocktail, only: %i[show edit update destroy]
 
@@ -11,6 +13,8 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.includes(user: :profile).where(cocktail_id: params[:id])
     @likes = @cocktail.likes.count
   end
 

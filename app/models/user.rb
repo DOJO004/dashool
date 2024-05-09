@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one :profile
   has_many :cocktails
   has_many :likes
+  has_many :comments
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

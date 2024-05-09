@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :cocktails
   resources :classic_cocktails
+  resources :comments
 
   get "setting", to: "users#setting"
   get "cocktail_map", to: "pages#cocktail_map"
