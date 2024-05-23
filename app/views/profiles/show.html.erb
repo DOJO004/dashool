@@ -12,7 +12,7 @@
           </div>
         <% else %>
           <div class="flex items-center w-16 h-16 mx-auto bg-white rounded-full md:w-24 lg:w-32 md:h-24 lg:h-32">
-            <%= render "icons/upload_photo_icon"%>
+            <%= image_tag "icons/uplaod.svg", class:"mx-auto"%>
           </div>
         <% end %>
       </div>
@@ -36,15 +36,15 @@
   </div>
   <div class="grid grid-cols-12 gap-2 mt-4">
     <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
-      <%= render "icons/cocktail_count_icon"%>
+      <%= image_tag "icons/cocktail.svg" , class:"mx-auto"%>
       <p>調酒 <%= @cocktails.count%></p>
     </div>
     <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
-      <%= render "icons/like_count_icon"%>
+      <%= image_tag "icons/heart.svg", class:"mx-auto"%>
       <p>喜歡 <%= @user.likes.count%> </p>
     </div>
     <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
-      <%= render "icons/collection_count_icon"%>
+      <%= image_tag "icons/collection.svg", class:"mx-auto"%>
       收藏</div>
   </div>
   <div class="mt-4">

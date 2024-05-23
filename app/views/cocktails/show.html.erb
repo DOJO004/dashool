@@ -25,18 +25,18 @@
   </div>
   <div class="lg:mx-4">
     <div data-controller="add-like" class="flex items-center gap-2">
-      <div class="flex gap-2">
+      <div class="flex items-center gap-2">
         <button 
           data-action="click->add-like#add_like"
           data-add-like-target="link"
           data-cocktail-id= <%= @cocktail.id%>
-          class="flex gap-2 transition-all duration-300 ease-in-out rounded-sm hover:scale-110"
+          class="transition-all duration-300 ease-in-out rounded-sm  hover:scale-110"
           >
-          <%= render "icons/like_count_icon"%>
+          <%= image_tag "icons/heart.svg"%>
         </button>
         <p data-add-like-target="like_count"></p>
       </div>
-      <%= render "icons/comment_icon"%>
+      <%= image_tag "icons/comment.svg"%>
     </div>
     <div>
       <h1 class="font-bold "><%= @cocktail.name %> </h1>
