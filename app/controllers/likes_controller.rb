@@ -1,10 +1,10 @@
 class LikesController < ApplicationController
-    before_action :authenticate_user!
+    before_action :check_current_user, only: [:create]
 
     def show
         cocktail = Cocktail.find(params[:cocktail_id])
         likes_count = cocktail.likes.count
-        liked = cocktail.likes.exists?(user_id: current_user.id)
+        liked = cocktail.likes.exists?(user_id: current_user.id) if current_user.present?
         render json: { 
             likes_count: likes_count, 
             current_user_liked: liked
@@ -23,5 +23,11 @@ class LikesController < ApplicationController
     def destroy
         @like = Like.find_by(user_id: current_user.id)
         @like.delete
+    end
+
+    private 
+    
+    def check_current_user
+        redirect_to new_user_session_path if current_user.nil?
     end
 end

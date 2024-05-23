@@ -25,9 +25,11 @@
       <%= render "layouts/navbar"%>
     </div>
     <main class="container flex min-h-screen px-2 mx-auto mt-8 md:px-4 ">
-      <div class="w-full ">
-        <p class="text-green-500"><%= notice %></p>
-        <p class="text-red-500 "><%= alert %></p>
+      <div class="relative w-full ">
+        <div class="absolute top-0 right-0 ">
+          <p class="text-green-500"><%= notice %></p>
+          <p class="text-red-500 "><%= alert %></p>
+        </div>
         <%= yield %>
       </div>
     </main>

@@ -1,0 +1,10 @@
+<div>
+  <% @comments.each do |comment|%>
+    <p>
+      <%= comment.user.profile.name%>
+    </p>
+    <p>
+      <%= comment.messages%>
+    </p>
+  <% end %>
+</div>

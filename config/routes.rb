@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     resources :profiles, except: %i[index]
   end
 
-  resources :cocktails
+  resources :cocktails do
+    resources :comments
+  end
   resources :classic_cocktails
-  resources :comments
 
   get "setting", to: "users#setting"
   get "cocktail_map", to: "pages#cocktail_map"

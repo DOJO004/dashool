@@ -24,11 +24,7 @@
     <% end %>
   </div>
   <div class="lg:mx-4">
-    <div data-controller="add-like" class="flex items-center justify-between my-4">
-      <div>
-        <h1 class="font-bold "><%= @cocktail.name %> </h1>
-        <%= link_to @cocktail.user.profile.name, profile_path(@cocktail.user.profile.id), class:"text-gray-400 hover:text-white"%>
-      </div>
+    <div data-controller="add-like" class="flex items-center gap-2">
       <div class="flex gap-2">
         <button 
           data-action="click->add-like#add_like"
@@ -40,6 +36,11 @@
         </button>
         <p data-add-like-target="like_count"></p>
       </div>
+      <%= render "icons/comment_icon"%>
+    </div>
+    <div>
+      <h1 class="font-bold "><%= @cocktail.name %> </h1>
+      <%= link_to @cocktail.user.profile.name, profile_path(@cocktail.user.profile.id), class:"text-gray-400 hover:text-white"%>
     </div>
     <p class="my-4">
       <span class="font-bold ">Base :</span>
@@ -53,8 +54,11 @@
       <%= @cocktail.introduce%>
     </div>
   </div>
+  <button>留言</button>
   <div>
-    <%= render "comments/show"%>
+    <%= turbo_frame_tag "comments" do %>
+      <%= render @cocktail.comments %>
+    <% end %>
     <%= render "comments/new"%>
   </div>
 </div>
