@@ -20,13 +20,13 @@
     <%# google icon %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
-  <body class="max-w-5xl mx-auto bg-neutral-800 text-neutral-200">
+  <body class="mx-auto bg-neutral-800 text-neutral-200">
     <div class="sticky top-0 z-10 bg-white ">
       <%= render "layouts/navbar"%>
     </div>
     <main class="container flex min-h-screen px-2 mx-auto mt-8 md:px-4 ">
       <div class="relative w-full ">
-        <div class="absolute top-0 right-0 ">
+        <div class="absolute top-0 right-0 z-10">
           <p class="text-green-500"><%= notice %></p>
           <p class="text-red-500 "><%= alert %></p>
         </div>

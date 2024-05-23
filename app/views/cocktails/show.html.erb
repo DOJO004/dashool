@@ -1,7 +1,7 @@
 <div class="relative show_cocktail">
   <div >
     <div class="absolute flex items-center justify-between w-full -top-10 ">
-      <%= link_to :back , class:"invert " do%>
+      <%= link_to cocktails_path , class:"invert " do%>
         <%= image_tag "arrow_back_icon.png"%>
       <% end %>
       <% if current_user && current_user.cocktails.find_by(id: @cocktail.id) %>

@@ -1,5 +1,10 @@
 <div>
-  <h1>創意調酒</h1>
+  <div class="flex items-center gap-4">
+    <h1>創意調酒</h1>
+    <%= link_to new_cocktail_path do%>
+      <%= image_tag "icons/add.svg"%>
+    <% end %>
+  </div>
   <%= search_form_for @q, class:"flex gap-2 items-center" do |f|%>
     <%= f.search_field :name_cont, placeholder:"搜尋名稱", class:"w-full rounded-md p-2 text-black"%>
     <button>
@@ -16,9 +21,9 @@
           <div class="overflow-hidden border-2 rounded border-neutral-800">
             <div>
               <%= image_tag cocktail.images.first.variant(resize_to_fill:[500, 500])%>
-              <p class="mx-1 text-md md:text-2xl "><%= cocktail.name%> </p>
+              <p class="mx-1 "><%= cocktail.name%> </p>
             </div>
-            <p class="mx-1 text-sm text-gray-400 md:text-lg"><%= cocktail.user.profile.name%> </p>
+            <p class="mx-1 text-sm text-gray-400 truncate md:text-lg"><%= cocktail.user.profile.name%> </p>
           </div>
         <% end %>
       <% end %>
