@@ -1,5 +1,5 @@
 <div class="w-full mx-auto lg:max-w-3xl">
-  <h2 ><%= t("sign_in.sign_in")%> </h2>
+  <h2 >登入</h2>
   <div class="flex justify-center my-12">
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false } do%>
@@ -14,23 +14,23 @@
   <div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="my-4">
-        <%= f.label :email, t("sign_in.email") %><br />
+        <%= f.label :email, "信箱" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full rounded-md text-black" %>
       </div>
       <div class="my-4">
-        <%= f.label :password, t("sign_in.password") %><br />
+        <%= f.label :password, "密碼" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class:"w-full rounded-md text-black" %>
       </div>
       <div class="w-full p-2 my-4 text-center rounded-md bg-amber-900">
-        <%= f.submit t("sign_in.sign_in"), class:"w-full cursor-pointer" %>
+        <%= f.submit "登入", class:"w-full cursor-pointer" %>
       </div>
     <% end %>
     <div class="my-4">
-      <%= link_to t("sign_in.forgot_your_password"), new_password_path(resource_name) %><br />
+      <%= link_to "忘記密碼?", new_password_path(resource_name) %><br />
     </div>
     <div class="flex items-center gap-2 my-4">
-      <p><%= t("sign_in.dont_have_an_account")%> </p>
-      <%= link_to t("sign_in.sign_up"), new_registration_path(resource_name), class:"text-blue-500" %><br />
+      <p><%= "尚未擁有帳號?"%> </p>
+      <%= link_to "註冊", new_registration_path(resource_name), class:"text-blue-500" %><br />
     </div>
   </div>
 </div>
