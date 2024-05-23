@@ -1,0 +1,17 @@
+  
+<div class="my-4 ">
+  <p class="text-center" data-action="click->navbar#showSettings">設定</p>
+  <div data-navbar-target="settings" class="h-0 overflow-hidden transition-all duration-300 ease-in-out bg-neutral-800">
+    <div data-controller="show-language" class="w-full max-w-3xl mx-auto my-4 cursor-pointer">
+      <p data-action="click->show-language#show" class="w-full text-center">
+        <%= t("setting.language") %>
+      </p>
+      <div data-show-language-target="language" class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <div class="py-2 mt-2 rounded-md bg-neutral-700">
+          <%= link_to "中文", { locale: "tw" }, class: "w-full block mt-2 text-center " %>
+          <%= link_to "English", { locale: "en" }, class: "w-full block mt-2 text-center " %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
