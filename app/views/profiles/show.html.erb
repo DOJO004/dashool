@@ -45,28 +45,8 @@
     </div>
     <div class="col-span-4 p-2 text-center text-gray-400 border border-gray-400 rounded-md">
       <%= image_tag "icons/collection.svg", class:"mx-auto"%>
-      追蹤</div>
+      追蹤 <%= @profile.followers.count %> </div>
   </div>
-  <div class="mt-4">
-    <% if @cocktails.length == 0%>
-      <p class="text-center text-gray-400">尚未擁有調酒</p>
-      <%= link_to "新增調酒", new_cocktail_path, class:"p-2 rounded-md bg-amber-900 mx-auto block w-fit my-4" if current_user && current_user.id === @profile.user_id%>
-    <% end %>
-    <div class="grid grid-cols-3 gap-2">
-      <% @cocktails.each do |cocktail|%>
-        <%= link_to cocktail_path(cocktail.id) do %>
-          <div class="w-full p-2 my-2 border border-gray-400 rounded-md hover:border-white">
-            <%= image_tag cocktail.images.first.variant(resize_to_fill: [500, 500]), class:"w-full  mx-auto rounded-sm" if cocktail.images.attached?%>
-            <div class="flex justify-between mt-2">
-              <p class="font-bold"><%= cocktail.name%></p>
-              <div class="flex gap-2">
-                <p><%= cocktail.likes.count%> </p>
-                <%= image_tag "icons/heart.svg"%>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render "follow_button"%>
+  <%= render "user_cocktails"%>
 </div>
