@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :cocktails
   has_many :likes
   has_many :comments
-  
+  has_many :collects
+  has_many :followed_profiles, through: :collects, source: :profile
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
