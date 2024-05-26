@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     end
   end
   
+  # articles
+  resources :articles
+  
   # comments 
   resources :cocktails do
     resources :comments

@@ -1,0 +1,27 @@
+<div>
+  <div class="flex items-center gap-4">
+    <h2>所有文章</h2>
+    <% if current_user && current_user.role %>
+    <% end %>
+    <%= link_to new_article_path do %>
+      <%= image_tag "icons/add.svg"%>
+    <% end %>
+  </div>
+  <div>
+    <% @articles.each do |article|%>
+      <%= link_to article_path(article), class:"block w-full rounded-md border mt-4 p-2 border-gray-400 hover:border-white" do%>
+        <div class="flex items-end gap-2">
+          <h3>
+            <%= article.title%>
+          </h3>
+          <p class="text-gray-500 ">
+            <%= article.created_at.in_time_zone('Taipei').strftime('%Y-%m-%d') %>
+          </p>
+        </div>
+        <div class="p-1 text-gray-500 border border-gray-500 rounded-md w-fit">
+          <%= article.category%>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

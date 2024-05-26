@@ -119,3 +119,11 @@ tw:
               blank: 'Email 不能為空'
             password:
               blank: 'Password 不能為空'
+        article:
+          attributes:
+            title:
+              blank: '標題不能為空'
+            category:
+              blank: '分類不能為空'
+            content:
+              blank: '內容不能為空'

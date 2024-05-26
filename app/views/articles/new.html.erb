@@ -1,0 +1,18 @@
+<div>
+  <h2>New Article</h2>
+  <%= form_with(model: @article, url: articles_path,  data: { turbo: false }) do |f|%>
+    <div class="mt-4 ">
+      <%= f.label :title%>
+      <%= f.text_field :title, name:"article[title]", class:" w-full rounded-md text-black"%>
+    </div>
+    <div class="mt-4 ">
+      <%= f.label :category%>
+      <%= f.text_field :category, class:" w-full rounded-md text-black"%>
+    </div>
+    <div class="mt-4 ">
+      <%= f.label :content%>
+      <%= f.rich_text_area :content, class:" w-full rounded-md text-black bg-white min-h-96"%>
+    </div>
+    <%= f.submit "送出", class:"mt-4 w-full rounded-md bg-blue-500 p-2"%>
+  <% end %>
+</div>

@@ -45,6 +45,15 @@ button {
 }@import 'actiontext.css';
 
 /* trix */
+
+/* article */
+#article_content ul li{
+  @apply list-disc ml-4 pl-2
+}
+#article_content ol li{
+  @apply list-decimal ml-4 pl-2
+}
+
 .trix-content h1 {
   @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl !important
 }

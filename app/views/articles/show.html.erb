@@ -1,0 +1,21 @@
+<div>
+  <%= link_to articles_path, class:"w-fit block" do %>
+    <%= image_tag "icons/back.svg"%>
+  <% end %>
+  <div class="flex items-center gap-2 mt-4">
+    <h2>
+      <%= @article.title%>
+    </h2>
+    <% if current_user && current_user.role === "admin" %>
+      <%= link_to edit_article_path do%>
+        <%= image_tag "icons/edit.svg"%>
+      <% end %>
+    <% end %>
+  </div>
+  <p class="p-1 text-gray-500 border border-gray-500 rounded-md w-fit ">
+    <%= @article.category%>
+  </p>
+  <div class="mt-4">
+    <%= @article.content%>
+  </div>
+</div>
