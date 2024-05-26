@@ -52,7 +52,7 @@ tw:
       last_attempt: '您還有一次嘗試機會，否則您的帳號將被鎖定。'
       not_found_in_database: '無效的 %{authentication_keys} 或密碼。'
       timeout: '您的會話已過期。請重新登入以繼續。'
-      unauthenticated: '您需要先登入或註冊才能繼續。'
+      unauthenticated: '您需要先登入喔!🙂'
       unconfirmed: '您需要在繼續之前確認您的電子郵件地址。'
     mailer:
       confirmation_instructions:
@@ -99,7 +99,7 @@ tw:
       not_found: '未找到'
       not_locked: '未被鎖定'
       not_saved:
-        one: '由於以下 1 個錯誤，此 %{resource} 未能保存：'
+        one: '由於以下 1 個錯誤，此 %{resource} 未能註冊：'
         other: '由於以下 %{count} 個錯誤，此 %{resource} 未能保存：'
   datetime:
     distance_in_words:
@@ -110,3 +110,12 @@ tw:
       x_weeks: '%{count} 周'
       x_months: '%{count} 月'
       x_years: '%{count} 年'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Email 不能為空'
+            password:
+              blank: 'Password 不能為空'

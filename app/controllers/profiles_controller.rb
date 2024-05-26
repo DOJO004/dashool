@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def show
     @user = User.find(@profile.user_id)
