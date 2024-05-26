@@ -2,9 +2,9 @@
   <div class="flex items-center gap-4">
     <h2>所有文章</h2>
     <% if current_user && current_user.role %>
-    <% end %>
-    <%= link_to new_article_path do %>
-      <%= image_tag "icons/add.svg"%>
+      <%= link_to new_article_path do %>
+        <%= image_tag "icons/add.svg"%>
+      <% end %>
     <% end %>
   </div>
   <div>
