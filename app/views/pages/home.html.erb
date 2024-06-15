@@ -1,37 +1,35 @@
-<div class="w-full ">
-  <div class="my-12">
-    <div>
-      <h1 class="my-4 text-center ">Dashool</h1>
-      <p class="my-4 text-xl text-center md:text-2xl xl:text-4xl ">紀錄、分享自己的調酒</p>
-    </div>
-    <div class="flex justify-center gap-4 my-4">
-      <% if current_user.nil? %>
-        <%= link_to new_user_registration_path, class:"flex gap-2 items-center bg-amber-900 rounded-md p-2 hover:bg-amber-800" do%>
-          <%= image_tag "user.png", alt:"registration icon", class:"w-4"%>
-          <p>註冊會員</p>
+<div>
+  <div class="flex flex-col gap-4 mt-20">
+    <h1 class="text-center ">World Cocktail Community</h1>
+    <p class="text-center ">Share and record your cocktail recipe</p>
+    <%= link_to "Sign Up", new_user_registration_path, class:"block bg-rose-950 w-fit p-2 mx-auto"%>
+  </div>
+  <div class="mt-8">
+    <h2 class="text-center">Cocktails</h2>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <% @cocktails.each do |cocktail|%>
+        <%= link_to cocktail_path(cocktail), class:"block" do%>
+          <%= image_tag cocktail.images.first%>
+          <div class="flex justify-between">
+            <div class="flex gap-2">
+              <%= image_tag cocktail.user.profile.avatar, class:"w-6 h-6 rounded-full" if cocktail.user.profile.avatar.present? %>
+              <p><%= cocktail.user.profile.name%></p>
+            </div>
+            <div class="flex gap-2">
+              <div class="flex gap-2">
+                <%= image_tag "icons/heart.svg"%>
+                <p><%= cocktail.likes.count%></p>
+              </div>
+              <div>
+                <%= image_tag "icons/visibility.svg"%>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <%= link_to new_user_session_path, class:"border border-gray-500 rounded-md p-2 hover:border-white" do%>
-          <p>登入</p>
-        <% end %>
-      <% else %>
-        <%= link_to "+ 新增自己的酒譜", new_cocktail_path, class:"p-2 border  border-gray-500 rounded-md hover:border-white w-fit"%>
       <% end %>
     </div>
   </div>
   <div>
-    <div>
-      <%# 用戶創意調酒 %>
-      <div class="flex items-center justify-between">
-        <h3>熱門酒譜</h3>
-        <%= link_to "所有酒譜", cocktails_path, class:"border p-1 rounded-md text-gray-500 border-gray-500 hover:border-white hover:text-white"%>
-      </div>
-      <div class="grid grid-cols-3 gap-2">
-        <% @cocktails.each do |cocktail|%>
-          <%= link_to cocktail_path(cocktail.id), class:"hover:scale-110" do %>
-            <%= image_tag cocktail.images.first.variant(resize_to_fill: [500, 500]), class:"w-full  mx-auto rounded-sm" if cocktail.images.attached?%>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+    <h2 class="text-center">Articles</h2>
   </div>
 </div>
