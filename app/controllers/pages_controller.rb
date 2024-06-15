@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   before_action :check_profile, only: :home
   def home
-    @cocktails = Cocktail.order("RANDOM()").limit(4)
-    @classic_cocktails = ClassicCocktail.order("RANDOM()").limit(4)
+    @cocktails = Cocktail.all
   end
 
   def cocktail_map; end
