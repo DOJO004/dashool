@@ -1,18 +1,28 @@
 <div data-controller="navbar" >
   <div class="flex items-center justify-between p-4 text-center bg-black md:grid md:grid-cols-3">
     <div class="items-center hidden grid-cols-3 md:grid">
-      <p >Cocktails</p>
-      <p >Articles</p>
-      <p >Jobs</p>
+      <%= link_to "Cocktails", cocktails_path%>
+      <p  class="text-gray-600">Articles</p>
+      <p  class="text-gray-600">Jobs</p>
     </div>
-    <div class="flex items-center justify-center gap-2">
-      <%= image_tag "icons/logo.png", class:"h-12"%>
-      <p>DASHOOL</p>
+    <div >
+      <%= link_to root_path, class:"flex items-center justify-center gap-2" do %>
+        <%= image_tag "icons/logo.png", class:"h-12"%>
+        DASHOOL
+      <% end %>
     </div>
-    <div class="items-center hidden grid-cols-5 md:grid">
-      <input type="search" class="col-span-3 ">
-      <p >Log In</p>
-      <p >Sign Up</p>
+    <div class="items-center hidden grid-cols-3 md:grid">
+      <div class="relative ">
+        <%= image_tag "icons/search.svg", class:" absolute top-2 left-2"%>
+        <input type="search" placeholder="cocktail name" class="w-full pl-8">
+      </div>
+      <%= link_to "Log In", new_user_session_path%>
+      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1" %>
+    </div>
+    <%# mobile screen start %>
+    <div class="relative md:hidden ">
+      <%= image_tag "icons/search.svg", class:" absolute top-2 left-4"%>
+      <input type="search" placeholder="cocktail name" class="w-10/12 pl-6 ">
     </div>
     <div data-action="click->navbar#showMenu" class="flex flex-col gap-1 cursor-pointer md:hidden">
       <div class="w-6 h-0.5 bg-white rounded-md"></div>
@@ -20,11 +30,18 @@
       <div class="w-6 h-0.5 bg-white rounded-md"></div>
     </div>
   </div>
-  <ul data-navbar-target="menu" class="h-0 overflow-hidden text-center transition-all duration-300 ease-in-out bg-black">
-    <li class="my-4 text-xl">Cocktails</li>
-    <li class="my-4 text-xl">Articles</li>
-    <li class="my-4 text-xl">Jobs</li>
-    <li class="my-4 text-xl">Log In</li>
-    <li class="my-4 text-xl">Sign Up</li>
+  <ul data-navbar-target="menu" class="fixed right-0 w-0 overflow-hidden text-center transition-all duration-300 ease-in-out bg-black top-16 text-nowrap md:hidden">
+    <li class="my-4 text-xl">
+      <%= link_to "Cocktails", cocktails_path%>
+    </li>
+    <li class="my-4 text-xl text-gray-600">Articles</li>
+    <li class="my-4 text-xl text-gray-600">Jobs</li>
+    <li class="my-4 text-xl">
+      <%= link_to "Log In", new_user_session_path, class:" block"%>
+    </li>
+    <li class="my-4 text-xl">
+      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1 block"%>
+    </li>
   </ul>
+  <%# mobile screen end %>
 </div>
