@@ -1,28 +1,47 @@
-<div data-controller="navbar" class="relative w-full shadow-lg" >
-  <div class="flex items-center justify-between p-2 overflow-hidden bg-neutral-700">
-    <%= link_to root_path, aria: { label: "Home" } do%>
-      <h1>Dashool</h1>
-    <% end %>
-    <div data-action="click->navbar#showMenu" class="p-1 cursor-pointer" >
-      <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
-      <span  class="block w-8 h-1 my-2 transition-all duration-500 bg-white rounded-md "></span>
+<div data-controller="navbar" >
+  <div class="flex items-center justify-between p-4 text-center bg-black md:grid md:grid-cols-3">
+    <div class="items-center hidden grid-cols-3 md:grid">
+      <%= link_to "Cocktails", cocktails_path%>
+      <p  class="text-gray-600">Articles</p>
+      <p  class="text-gray-600">Jobs</p>
     </div>
-  </div>
-  <div data-navbar-target="menu" class="fixed top-0 right-0 w-0 h-full overflow-hidden transition-all duration-500 lg:top-12 bg-neutral-900 ">
-    <div class="absolute top-0 w-full mb-4 whitespace-nowrap ">
-      <% if current_user %>
-        <%= link_to "個人檔案", profile_path(current_user.profile.id), class:"my-4  block text-center" %>
-        <%= button_to "登出", destroy_user_session_path, data:{ turbo: false }, method: :delete, class:" w-full "%>
-      <% else %>
-        <%= link_to "註冊會員", new_user_registration_path, class:"my-4   text-center block bg-amber-900 w-fit mx-auto p-2 rounded-md " %>
-        <%= link_to "登入", new_user_session_path, class:"my-4   text-center block " %>
+    <div >
+      <%= link_to root_path, class:"flex items-center justify-center gap-2" do %>
+        <%= image_tag "icons/logo.png", class:"h-12"%>
+        DASHOOL
       <% end %>
-      <hr class="my-4">
-      <%= link_to "創意調酒", cocktails_path, class:"my-4 mt-4 text-center block"%>
-      <%= link_to "經典調酒", classic_cocktails_path, class:"my-4 mt-4 text-center block"%>
-      <%= link_to "所有文章", articles_path, class:"my-4 text-center block" %>
-      <p class="my-4 text-center " title="施工中! 敬請期待">關於 Dashool</p>
     </div>
-    <button data-action="click->navbar#closeMenu" class="absolute top-0 p-2 right-3 ">X</button>
+    <div class="items-center hidden grid-cols-3 md:grid">
+      <div class="relative ">
+        <%= image_tag "icons/search.svg", class:" absolute top-2 left-2"%>
+        <input type="search" placeholder="cocktail name" class="w-full pl-8">
+      </div>
+      <%= link_to "Log In", new_user_session_path%>
+      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1" %>
+    </div>
+    <%# mobile screen start %>
+    <div class="relative md:hidden ">
+      <%= image_tag "icons/search.svg", class:" absolute top-2 left-4"%>
+      <input type="search" placeholder="cocktail name" class="w-10/12 pl-6 ">
+    </div>
+    <div data-action="click->navbar#showMenu" class="flex flex-col gap-1 cursor-pointer md:hidden">
+      <div class="w-6 h-0.5 bg-white rounded-md"></div>
+      <div class="w-6 h-0.5 bg-white rounded-md"></div>
+      <div class="w-6 h-0.5 bg-white rounded-md"></div>
+    </div>
   </div>
+  <ul data-navbar-target="menu" class="fixed right-0 w-0 overflow-hidden text-center transition-all duration-300 ease-in-out bg-black top-16 text-nowrap md:hidden">
+    <li class="my-4 text-xl">
+      <%= link_to "Cocktails", cocktails_path%>
+    </li>
+    <li class="my-4 text-xl text-gray-600">Articles</li>
+    <li class="my-4 text-xl text-gray-600">Jobs</li>
+    <li class="my-4 text-xl">
+      <%= link_to "Log In", new_user_session_path, class:" block"%>
+    </li>
+    <li class="my-4 text-xl">
+      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1 block"%>
+    </li>
+  </ul>
+  <%# mobile screen end %>
 </div>
