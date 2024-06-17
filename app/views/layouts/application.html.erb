@@ -15,10 +15,10 @@
     <%= favicon_link_tag asset_path("icons/logo.png")%>
   </head>
   <body class="mx-auto bg-black text-neutral-200">
-    <div class="sticky top-0 z-10">
-      <%= render "layouts/navbar"%>
-    </div>
-    <main class="p-4 ">
+    <main class="flex flex-col items-center justify-center h-screen p-4">
+      <div class="fixed z-10 -top-3">
+        <%= render "layouts/navbar"%>
+      </div>
       <div class="relative w-full ">
         <div class="bg-black rounded-md">
           <p class="text-green-500"><%= notice %></p>
