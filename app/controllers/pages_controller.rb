@@ -7,15 +7,15 @@ class PagesController < ApplicationController
   def cocktail_map; end
 
   def check_profile
-    if current_user && current_user.profile.blank?
-      name = current_user.full_name || current_user.email
-      name = unique_name(name) if Profile.exists?(name: name)
-      current_user.create_profile!(name: name, avatar: default_avatar)
-    end
+    return if current_user.nil?
+    return if current_user.profile.present?
+
+    name = current_user.full_name || current_user.email
+    current_user.create_profile(name: unique_name(name))
   end
-  
+
   private
-  
+
   def unique_name(name)
     "#{name}-#{SecureRandom.hex(4)}" # 在名称后面加上随机字符串
   end
