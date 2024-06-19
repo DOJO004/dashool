@@ -13,9 +13,9 @@ class PagesController < ApplicationController
     name = current_user.full_name || current_user.email
     current_user.create_profile(name: unique_name(name))
   end
-  
+
   private
-  
+
   def unique_name(name)
     "#{name}-#{SecureRandom.hex(4)}" # 在名称后面加上随机字符串
   end

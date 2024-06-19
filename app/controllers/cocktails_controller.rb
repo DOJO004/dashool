@@ -1,9 +1,8 @@
 # frozen_string_literal: true
+
 require "image_processing/mini_magick"
 
-
 class CocktailsController < ApplicationController
-
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_cocktail, only: %i[show edit update destroy]
 
@@ -27,12 +26,13 @@ class CocktailsController < ApplicationController
 
     if params[:cocktail][:images].present?
       params[:cocktail][:images].each do |image|
-        next if image.blank?  
+        next if image.blank?
+
         ok_image = resize_image(image, 1920, 1080)
         puts "** #{File.size(ok_image.path)}"
       end
     end
-    
+
     if @cocktail.save
       redirect_to @cocktail, notice: "Cocktail was successfully created."
     else
@@ -42,9 +42,8 @@ class CocktailsController < ApplicationController
   end
 
   def edit; end
-  
-  def update
 
+  def update
     if @cocktail.update(cocktail_params)
       redirect_to cocktail_path(params[:id])
     else

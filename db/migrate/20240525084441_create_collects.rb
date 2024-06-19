@@ -6,6 +6,6 @@ class CreateCollects < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
-    add_index :collects, [:user_id, :profile_id], unique: true
+    add_index :collects, %i[user_id profile_id], unique: true
   end
 end

@@ -77,7 +77,7 @@ gem "uuid7", "~> 0.2.0"
 
 gem "devise"
 gem "i18n", "~> 1.14"
+gem "mini_magick"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection", "~>1.0"
-gem "mini_magick"
