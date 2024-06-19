@@ -16,8 +16,13 @@
         <%= image_tag "icons/search.svg", class:" absolute top-2 left-2"%>
         <input type="search" placeholder="cocktail name" class="w-full pl-8">
       </div>
-      <%= link_to "Log In", new_user_session_path%>
-      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1" %>
+      <% if @current_user %>
+        <%= @current_user.profile.name%>
+        <%= link_to "Log Out", destroy_user_session_path, data:{ turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path%>
+        <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1" %>
+      <% end %>
     </div>
     <%# mobile screen start %>
     <div class="relative md:hidden ">
@@ -36,12 +41,19 @@
     </li>
     <li class="my-4 text-xl text-gray-600">Articles</li>
     <li class="my-4 text-xl text-gray-600">Jobs</li>
-    <li class="my-4 text-xl">
-      <%= link_to "Log In", new_user_session_path, class:" block"%>
-    </li>
-    <li class="my-4 text-xl">
-      <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1 block"%>
-    </li>
+    <% if @current_user %>
+      <li><%= link_to @current_user.profile.name, @current_user.profile %></li>
+      <li>
+        <%= link_to "Log Out", destroy_user_session_path, data:{ turbo_method: :delete } %>
+      </li>
+    <% else %>
+      <li class="my-4 text-xl">
+        <%= link_to "Log In", new_user_session_path, class:" block"%>
+      </li>
+      <li class="my-4 text-xl">
+        <%= link_to "Sign Up", new_user_registration_path, class:"bg-rose-950 p-1 block"%>
+      </li>
+    <% end %>
   </ul>
   <%# mobile screen end %>
 </div>
