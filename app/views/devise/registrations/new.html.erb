@@ -1,8 +1,8 @@
-<div class="flex items-center justify-center gap-2 mx-auto">
-  <div class="hidden w-full lg:block">
-    <%= image_tag "logo_with_text.png", class:"mx-auto"%>
+<div class="flex items-center justify-center gap-2 mx-auto mt-20 max-w-[1440px]">
+  <div class="hidden mx-auto lg:block">
+    <%= image_tag "logo_with_text.png"%>
   </div>
-  <div class="w-full max-w-[512px] ">
+  <div class="w-full max-w-[512px]  mx-auto ">
     <h2 >Sign up</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
